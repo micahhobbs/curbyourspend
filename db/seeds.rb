@@ -15,15 +15,21 @@ puts "Finished cleaning data."
 puts "Creating data..."
 
 micah = User.create!(
+  first_name: "Micah",
+  last_name: "Hobbs",
   email: "micah@email.com",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
+  profile_visible: true,
 )
 
 phil = User.create!(
+  first_name: "Phil",
+  last_name: "Tan",
   email: "phil@email.com",
   password: "password",
   password_confirmation: "password",
+  profile_visible: true,
 )
 
 lachy = User.create!(
