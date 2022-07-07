@@ -1,9 +1,23 @@
-<%= simple_form_for(@item) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :value %>
-  <%= f.input :description %>
-  <%= f.input :link %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+  <div class="col-5 container mt-3 pt-4 mb-3 pb-3">
+    <%= simple_form_for(@item) do |f| %>
+      <p>I want to buy a..</p>
+      <%= f.input :name, label: false,  placeholder: "Item name" %>
+      <p>It costs..</p>
+      <%= f.input :value, label: false,  placeholder: "Price" %>
+      <p>For this reason..</p>
+      <%= f.input :reason, label: false,  placeholder: "Reason" %>
+      <p>It looks like..</p>
+      <p><strong>ADD IMAGE FUNCTIONALITY</strong></p>
+      <p>I would describe it as..</p>
+      <%= f.input :description, label: false,  placeholder: "Item description" %>
+      <p>Link...</p>
+      <%= f.input :link, label: false,  placeholder: "Link to item" %>
+      <p>I want to start tracking this item from..</p>
+      <%= f.input :start_date, label: false,  placeholder: "Start date" %>
+      <p>I want to stop tracking this item on..</p>
+      <%= f.input :end_date, label: false,  placeholder: "End date" %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
