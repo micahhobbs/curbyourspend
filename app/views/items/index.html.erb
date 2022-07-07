@@ -1,0 +1,26 @@
+<h1>Your Items</h1>
+<%= link_to 'Add new item', new_item_path, class: 'btn btn-primary' %>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Value</th>
+    <th>Description</th>
+    <th>Link</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Action</th>
+  </tr>
+  <%  @items.each do |item| %>
+    <% if item.user_id == current_user.id %>
+      <tr>
+        <td><%= item.name %></td>
+        <td>$<%= item.value %></td>
+        <td><%= item.description %></td>
+        <td><%= link_to item.link, item.link %></td>
+        <td><%= item.start_date %></td>
+        <td><%= item.end_date %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
