@@ -11,7 +11,6 @@
     <th>Action</th>
   </tr>
   <%  @user.items.each do |item| %>
-    <% if item.user_id == current_user.id %>
       <tr>
         <td><%= item.name %></td>
         <td>$<%= item.value %></td>
@@ -21,6 +20,5 @@
         <td><%= item.end_date %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
       </tr>
-    <% end %>
   <% end %>
 </table>
