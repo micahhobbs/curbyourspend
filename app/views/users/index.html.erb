@@ -4,7 +4,7 @@
   <% @users.each do |user|  %>
   <% if user.profile_visible == true && user.id != current_user.id%>
   <div class = 'card p-3 mb-1'>
-    <p class="mb-1"><strong>Name:</strong> <%= "#{user.first_name} #{user.last_name}"%></p>
+    <p class="mb-1"><strong>Name:</strong> <%= link_to "#{user.first_name} #{user.last_name}", user_profile_path(user) %></p>
     <p class="mb-1"><strong>Username</strong> <%= user.username %></p>
     <p class="mb-1"><strong>Email</strong> <%= user.email %></p>
   </div>

@@ -1,1 +1,26 @@
-<h1> User <%=@user.email%> </h1>
+<h1><%=@user.first_name%>'s' Items</h1>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Value</th>
+    <th>Description</th>
+    <th>Link</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Action</th>
+  </tr>
+  <%  @user.items.each do |item| %>
+    <% if item.user_id == current_user.id %>
+      <tr>
+        <td><%= item.name %></td>
+        <td>$<%= item.value %></td>
+        <td><%= item.description %></td>
+        <td><%= link_to item.link, item.link %></td>
+        <td><%= item.start_date %></td>
+        <td><%= item.end_date %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
