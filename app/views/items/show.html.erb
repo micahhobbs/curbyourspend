@@ -1,5 +1,5 @@
-<div class='container py-4'>
-  <div class='row gx-4'>
+<div class='container'>
+  <div class='row py-5'>
     <div class='col-5'>
       <% if @item.photo.key %>
         <%= cl_image_tag @item.photo.key, height: 400, width: 500, crop: :fill %>
@@ -7,7 +7,7 @@
         <%= image_tag('pig.png', height: 400, width: 500) %>
       <% end  %>
     </div>
-    <div class='col-5 border d-flex flex-column py-4 justify-content-center align-items-center py-3'>
+    <div class='col-5 border d-flex flex-column py-4 justify-content-center align-items-center bg-white'>
       <h1 class='mx-3'><%= @item.name %></h1>
       <div class='py-4'>
         <p><%= number_to_currency(@item.value) %></p>
