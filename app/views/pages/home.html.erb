@@ -1,2 +1,99 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 text-white">
+        <p>WELCOME TO CURB YOUR SPEND</p>
+        <p class="font-weight-bold tag-line">
+          Eliminate impulse spending.
+        </p>
+        <p class="fs-4">
+          Track everything you want. Only buy the things that you really need.
+        </p>
+        <%= link_to "Start saving now →", new_item_path, class: "w-50 btn btn-light mt-3 mb-5 btn-lg"  %>
+      </div>
+      <div class="col-sm-4 d-flex flex-column m-auto">
+        <%#= link_to "Learn more", root_path, class: "w-50 btn btn-outline-success btn-lg" %>
+        <%= image_tag "money.png" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-white">
+  <div class="container">
+    <div class="row">
+        <h2 id="benefits" class="text-center fw-bold pb-5 heading">Benefits</h2>
+        <div class="col-sm-4">
+          <div class="card text-center shadow-sm bg-light">
+            <div class="card-body">
+              <div class="icon my-4">
+                <i class="fas fa-dollar-sign fs-1"></i>
+              </div>
+              <h4 class="card-title mb-4 fw-bold">Title</h4>
+              <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card text-center shadow-sm bg-light">
+            <div class="card-body">
+              <div class="icon my-4">
+                <i class="fas fa-signal fs-1"></i>
+              </div>
+              <h4 class="card-title mb-4 fw-bold">Title</h4>
+              <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card text-center shadow-sm bg-light">
+            <div class="card-body">
+              <div class="icon my-4">
+                <i class="far fa-smile fs-1"></i>
+              </div>
+              <h4 class="card-title mb-4 fw-bold">Title</h4>
+              <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+        </div>
+        <%= link_to "Start saving now →", new_item_path, class: "w-25 btn btn-success mt-5 mb-5 btn-lg m-auto"  %>
+      </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <h2 id="pricing" class="text-center fw-bold pb-5 heading">Pricing</h2>
+    <div class="col-sm-6">
+      <div class="card text-center shadow-sm">
+        <div class="card-header">
+          FREE
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">$0</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Save up to 10 items</li>
+            <li class="list-group-item">Includes</li>
+            <li class="list-group-item">Includes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card text-center shadow-sm">
+        <div class="card-header">
+          PREMIUM
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">$9/month</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Includes</li>
+            <li class="list-group-item">Includes</li>
+            <li class="list-group-item">Includes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%= link_to "Start saving now →", new_item_path, class: "w-25 btn btn-light mt-5 mb-5 btn-lg m-auto"  %>
+  </div>
+</div>
