@@ -1,0 +1,14 @@
+<div class="container py-5">
+  <h1 class="py-3">Cooling off calendar</h1>
+  <p>Checkout the items cooling off this month.</p>
+  <%= month_calendar(events: @items, end_attribute: :end_date) do |date, items| %>
+  <%= date %>
+  <% items.each do |item| %>
+    <div class="item">
+      <%= link_to item, class: "text-decoration-none text-white" do %>
+        <p><%= item.name.slice(0,15)... %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <% end %>
+</div>
