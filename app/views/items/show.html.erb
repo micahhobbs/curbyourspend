@@ -1,25 +1,40 @@
 <div class='container py-4'>
   <div class='row gx-4'>
     <div class='col-5'>
-<%# Need to add ability to load and display images. %>
-      <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if @item.photo.key %>
+        <%= cl_image_tag @item.photo.key, height: 400, width: 500, crop: :fill %>
+      <% else %>
+        <%= image_tag('pig.png', height: 400, width: 500) %>
+      <% end  %>
     </div>
     <div class='col-5 border d-flex flex-column py-4 justify-content-center align-items-center py-3'>
       <h1 class='mx-3'><%= @item.name %></h1>
       <div class='py-4'>
         <p><%= number_to_currency(@item.value) %></p>
       </div>
-      <div class='py-4'>
-        <%= @item.reason %>
+      <div class='py-4 d-flex flex-column text-center'>
+        <% case @item.reason %>
+        <% when "Fun"  %>
+          <i class="fa-light far fa-face-laugh-beam show-icon"></i>
+        <% when "Fitness" %>
+          <i class="fa-light fas fa-dumbbell show-icon"></i>
+        <% when "Productivity" %>
+          <i class="fa-light fas fa-rocket show-icon"></i>
+        <% when "Technology" %>
+          <i class="fa-light fas fa-computer show-icon"></i>
+        <% else %>
+          <i class="fa-light far fa-circle-question show-icon"></i>
+        <% end %>
+        <p class='pt-4'><%= @item.reason %></p>
       </div>
       <div class='py-4'>
         <%= link_to 'Link to item', @item.link %>
       </div>
       <div class='d-inline-flex py-4'>
-<%# All three buttons need functionality to set status of item. %>
+<%# Abandon will need to set status. Buy will need to direct to questionaire. %>
         <%= link_to 'Abandon', items_path, class: 'btn btn-lg wht-btn mx-2' %>
         <%= link_to 'Buy', items_path, class: 'btn btn-lg gen-btn mx-2' %>
-        <%= link_to 'Extend', items_path, class: 'btn btn-lg wht-btn mx-2' %>
+        <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg wht-btn mx-2' %>
       </div>
     </div>
   </div>
