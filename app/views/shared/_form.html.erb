@@ -4,7 +4,7 @@
   <p>It costs..</p>
   <%= f.input :value, label: false,  placeholder: "Price" %>
   <p>For this reason..</p>
-  <%= f.input :reason, label: false,  placeholder: "Reason" %>
+  <%= f.input :reason, :collection => %w[Fun Fitness Productivity Technology Other], label: false,  placeholder: "Reason" %>
   <p>It looks like..</p>
   <%= f.input :photo, as: :file, label: false %>
   <p>I would describe it as..</p>
