@@ -1,6 +1,6 @@
 <div class='container'>
-  <div class='row'>
-    <div class='col-6 container border my-3 p-2'>
+  <div class='row pt-5 pb-0'>
+    <div class='col-6 container border mt-3 px-5 py-3 bg-white'>
       <h2 class='py-2'>Edit <%= resource_name.to_s.humanize %></h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
@@ -35,8 +35,8 @@
   </div>
 </div>
 <div class='container'>
-  <div class='row'>
-    <div class='col-6 container border mt-2 p-2 mb-4'>
+  <div class='row py-5'>
+    <div class='col-6 container border py-3 bg-white px-5'>
       <h3>Cancel my account</h3>
         <p>Are you sure you want to cancel your account?</p>
         <div class='d-inline-flex'>

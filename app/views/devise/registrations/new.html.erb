@@ -1,17 +1,16 @@
 <div class='container'>
-  <div class='row'>
+  <div class='row py-5'>
     <div class='col-5 align-self-center'>
-      <h1 class='pb-3'>Curb Your Spend</h2>
-      <ul>
-        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Eliminate</Strong></p></li>
+      <ul style='list-style: none;'>
+        <li><p style="color: #52b788"><i class="fa-solid fa-circle-check"></i><Strong> Eliminate</Strong></p></li>
         <li><p>Eliminate impulse spending and buyers remorse.</p></li>
-        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Track</Strong></p></li>
+        <li><p style="color: #52b788"><i class="fa-solid fa-circle-check"></i><Strong> Track</Strong></p></li>
         <li><p>Track everything you want.</p></li>
-        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Buy</Strong></p></li>
+        <li><p style="color: #52b788"><i class="fa-solid fa-circle-check"></i><Strong> Buy</Strong></p></li>
         <li><p>Only buy the things that you really need.</p></li>
       </ul>
     </div>
-    <div class='col-6 align-self-center border my-4 p-2'>
+    <div class='col-6 align-self-center border px-5 py-3 bg-white'>
       <h3 class='py-3'>Create Your Curb Account</h1>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
