@@ -69,5 +69,17 @@ item3 = Item.create!(
   user_id: 3,
 )
 
+50.times {
+    rand_date = Faker::Date.in_date_period
+    Item.create!(
+    name: Faker::Commerce.product_name,
+    value: Faker::Commerce.price(range: 500...9000),
+    description: "I really want this."
+    link: "https://www.jbhifi.com.au/products/samsung-q60b-75-qled-4k-smart-tv-2022?view=tabs",
+    start_date: rand_date,
+    end_date: rand_date + 10,
+    user_id: [1,2,3].sample,
+  )
+}
 
 puts "Seed complete."

@@ -1,8 +1,8 @@
 import React from "react"
 
-const general = ({ users }) => {
+const general = ({ user }) => {
     return (
-      <h1>{users.first.name}</h1>
+      <h1>{user.first_name}</h1>
     );
 }
 

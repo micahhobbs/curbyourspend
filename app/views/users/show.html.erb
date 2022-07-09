@@ -1,5 +1,7 @@
 <h1><%=@user.first_name%>'s' Items</h1>
 
+<%= react_component("general", { user: @user}) %>
+
 <table>
   <tr>
     <th>Item</th>
