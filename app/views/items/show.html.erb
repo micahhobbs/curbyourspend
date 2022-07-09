@@ -2,7 +2,7 @@
   <div class='row gx-4'>
     <div class='col-5'>
 <%# Need to add ability to load and display images. %>
-      <p><strong>IMAGE</strong></p>
+      <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
     <div class='col-5 border d-flex flex-column py-4 justify-content-center align-items-center py-3'>
       <h1 class='mx-3'><%= @item.name %></h1>
