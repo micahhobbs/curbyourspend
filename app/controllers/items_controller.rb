@@ -8,6 +8,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def new
+    @item = Item.new
+  end
+
   def create
     @item = Item.new(item_params)
     @item.user = current_user
@@ -39,6 +43,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :value, :description, :link, :start_date, :end_date)
+    params.require(:item).permit(:name, :value, :photo, :reason, :description, :link, :start_date, :end_date)
   end
 end

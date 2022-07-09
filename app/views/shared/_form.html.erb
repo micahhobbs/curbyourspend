@@ -1,0 +1,23 @@
+<%= simple_form_for(@item) do |f| %>
+  <p>I want to buy a..</p>
+  <%= f.input :name, label: false,  placeholder: "Item name" %>
+  <p>It costs..</p>
+  <%= f.input :value, label: false,  placeholder: "Price" %>
+  <p>For this reason..</p>
+  <%= f.input :reason, label: false,  placeholder: "Reason" %>
+  <p>It looks like..</p>
+  <%= f.input :photo, as: :file, label: false %>
+  <p>I would describe it as..</p>
+  <%= f.input :description, label: false,  placeholder: "Item description" %>
+  <p>Link...</p>
+  <%= f.input :link, label: false,  placeholder: "Link to item" %>
+  <div class='pb-4'>
+      <p>I want to start tracking this item from..</p>
+    <%= f.date_field :start_date, class: 'mb-2' %>
+    <p>I want to stop tracking this item on..</p>
+    <%= f.date_field :end_date, class: 'mb-2' %>
+  </div>
+  <div>
+      <%= f.submit class: "btn btn-lg gen-btn" %>
+  </div>
+<% end %>
