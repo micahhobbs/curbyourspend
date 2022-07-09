@@ -1,0 +1,14 @@
+.all-items {
+  border: 1px solid darkgrey;
+
+  & th {
+    border: 1px solid darkgrey;
+  }
+  & td {
+    border: 1px solid darkgrey;
+  }
+}
+
+.all-items .date-col {
+  width: 120px;
+}

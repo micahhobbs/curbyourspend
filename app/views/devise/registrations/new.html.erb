@@ -1,17 +1,18 @@
 <div class='container'>
   <div class='row'>
-    <div class='col align-self-center'>
-      <h2>Curb Your Spend</h2>
+    <div class='col-5 align-self-center'>
+      <h1 class='pb-3'>Curb Your Spend</h2>
       <ul>
-        <li><p><Strong>Benefit 1</Strong></p></li>
-        <li><p>Benefit description.</p></li>
-        <li><p><Strong>Benefit 2</Strong></p></li>
-        <li><p>Benefit description.</p></li>
-        <li><p><Strong>Benefit 3</Strong></p></li>
-        <li><p>Benefit description.</p></li>
+        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Eliminate</Strong></p></li>
+        <li><p>Eliminate impulse spending and buyers remorse.</p></li>
+        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Track</Strong></p></li>
+        <li><p>Track everything you want.</p></li>
+        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Buy</Strong></p></li>
+        <li><p>Only buy the things that you really need.</p></li>
       </ul>
     </div>
-    <div class='col align-self-center'>
+    <div class='col-6 align-self-center border my-4 p-2'>
+      <h3 class='py-3'>Create Your Curb Account</h1>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
@@ -43,11 +44,12 @@
                       required: true,
                       autofocus: true%>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Create account", class: 'btn btn-primary' %>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Create account", class: 'btn btn-lg gen-btn mb-3' %>
+          <p>Have an account? <%= render "devise/shared/links" %></p>
         </div>
       <% end %>
-      <p>Have an account? <%= render "devise/shared/links" %></p>
+
     </div>
   </div>
 </div>

@@ -1,0 +1,26 @@
+
+.gen-btn {
+  background-color: $btn-green;
+  color: white;
+  border-radius: 5px;
+  transition: all .5s;
+}
+
+.gen-btn:hover {
+  background-color: #fff;
+  color: $btn-green;
+  border: 1px solid $btn-green;
+}
+
+.wht-btn {
+  background-color: #fff;
+  color: $btn-green;
+  border: 1px solid $btn-green;
+  transition: all .5s;
+}
+
+.wht-btn:hover {
+  background-color: $btn-green;
+  color: white;
+  border-radius: 5px;
+}
