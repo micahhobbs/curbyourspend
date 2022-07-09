@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+#cta {
+  background: linear-gradient(90deg, rgb(44, 198, 192) 0%, rgb(173, 214, 169) 100%)
+}
+
+.row {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.tag-line {
+  font-size: 60px;
+}
+
+.heading {
+  font-size: 50px;
+}
+
+.icon {
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  color: white;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+i {
+  padding-top: 28px;
+}
