@@ -19,7 +19,7 @@
     <tbody>
       <%  @items.each do |item| %>
         <% if item.user_id == current_user.id %>
-          <tr <%= link_to item_path(item.id) %>>
+          <tr>
             <td onclick="location.href='<%= item_path(item.id) %>'"><%= item.name %></td>
             <td onclick="location.href='<%= item_path(item.id) %>'"><%= number_to_currency(item.value) %></td>
             <td onclick="location.href='<%= item_path(item.id) %>'"><%= item.reason %></td>
