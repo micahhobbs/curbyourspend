@@ -68,6 +68,38 @@ lachy = User.create!(
 #   end_date: Date.new(2022, 7, 14),
 #   user_id: 3,
 # )
+item1 = Item.create!(
+  name: "Samsung 75 inch 4K Smart TV",
+  value: 2495,
+  description: "Extraordinary colour and brightness can be yours, with Quantum Dot technology on Q60B QLED TV. The AirSlim Design offers a sleek, minimalist profile, and with Smart Connectivity, controlling and connecting entertainment and devices can be quick and seamless. Long-lasting brilliance, colourful possibilities.",
+  link: "https://www.jbhifi.com.au/products/samsung-q60b-75-qled-4k-smart-tv-2022?view=tabs",
+  reason: "Fun",
+  start_date: Date.new(2022, 7, 4),
+  end_date: Date.new(2022, 7, 14),
+  user_id: 1,
+)
+
+item2 = Item.create!(
+  name: "Samsung 75 inch 4K Smart TV",
+  value: 2495,
+  description: "Extraordinary colour and brightness can be yours, with Quantum Dot technology on Q60B QLED TV. The AirSlim Design offers a sleek, minimalist profile, and with Smart Connectivity, controlling and connecting entertainment and devices can be quick and seamless. Long-lasting brilliance, colourful possibilities.",
+  link: "https://www.jbhifi.com.au/products/samsung-q60b-75-qled-4k-smart-tv-2022?view=tabs",
+  reason: "Fitness",
+  start_date: Date.new(2022, 7, 4),
+  end_date: Date.new(2022, 7, 14),
+  user_id: 2,
+)
+
+item3 = Item.create!(
+  name: "Samsung 75 inch 4K Smart TV",
+  value: 2495,
+  description: "Extraordinary colour and brightness can be yours, with Quantum Dot technology on Q60B QLED TV. The AirSlim Design offers a sleek, minimalist profile, and with Smart Connectivity, controlling and connecting entertainment and devices can be quick and seamless. Long-lasting brilliance, colourful possibilities.",
+  link: "https://www.jbhifi.com.au/products/samsung-q60b-75-qled-4k-smart-tv-2022?view=tabs",
+  reason: "Productivity",
+  start_date: Date.new(2022, 7, 4),
+  end_date: Date.new(2022, 7, 14),
+  user_id: 3,
+)
 
 50.times {
     rand_date = Faker::Date.in_date_period
