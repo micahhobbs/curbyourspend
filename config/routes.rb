@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user_profile'
   get '/dashboard', to: 'pages#dashboard'
+
+  get "calendar", to: 'pages#calendar'
 end

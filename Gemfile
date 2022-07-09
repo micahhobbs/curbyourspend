@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 
 gem 'react-rails'
+gem "simple_calendar", "~> 2.4"
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 6.1', '>= 6.1.1'
