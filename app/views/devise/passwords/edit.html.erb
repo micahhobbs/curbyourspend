@@ -1,27 +1,39 @@
-<h2>Change your password</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
-
-  <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
-                required: true,
-                autofocus: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                label: "Confirm your new password",
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-5 my-5 p-2'>
+      <h1 class='pb-3'>Curb Your Spend</h2>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Eliminate</Strong></p></li>
+        <li><p>Eliminate impulse spending and buyers remorse.</p></li>
+        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Track</Strong></p></li>
+        <li><p>Track everything you want.</p></li>
+        <li><i class="fa-solid fa-circle-check"></i><p><Strong>Buy</Strong></p></li>
+        <li><p>Only buy the things that you really need.</p></li>
+      </ul>
+    </div>
+    <div class='col-6 align-self-center border my-4 p-2'>
+      <h3 class='py-3'>Change your password</h1>
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :reset_password_token, as: :hidden %>
+        <%= f.full_error :reset_password_token %>
+        <div class="form-inputs">
+          <%= f.input :password,
+                      label: "New password",
+                      required: true,
+                      autofocus: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      label: "Confirm your new password",
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Change my password" %>
+          </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
