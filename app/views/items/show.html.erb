@@ -1,18 +1,17 @@
-<div class='container'>
-  <div class='row py-5'>
-    <div class='col-5'>
-      <% if @item.photo.key %>
-        <%= cl_image_tag @item.photo.key, height: 400, width: 500, crop: :fill %>
-      <% else %>
-        <%= image_tag('pig.png', height: 400, width: 500) %>
-      <% end  %>
-    </div>
-    <div class='col-5 border d-flex flex-column py-4 justify-content-center align-items-center bg-white'>
-      <h1 class='mx-3'><%= @item.name %></h1>
-      <div class='py-4'>
-        <p><%= number_to_currency(@item.value) %></p>
+<div class='container py-5'>
+  <div class='row border p-0 regular-shadow'>
+    <div class='col-6 d-flex flex-column justify-content-center align-items-center' id='cta'>
+      <div class='border border-dark border-1'>
+        <% if @item.photo.key %>
+          <%= cl_image_tag @item.photo.key, height: 500, width: 600, crop: :fill %>
+        <% else %>
+          <%= image_tag('pig.png', height: 500, width: 600) %>
+        <% end  %>
       </div>
-      <div class='py-4 d-flex flex-column text-center'>
+    </div>
+    <div class='col-6 d-flex flex-column py-4 justify-content-center align-items-center bg-white'>
+      <h1 class='mx-3 pb-1 pt-3 fs-1'><%= @item.name %></h1>
+      <div class='py-2 d-flex flex-column text-center'>
         <% case @item.reason %>
         <% when "Fun"  %>
           <i class="fa-light far fa-face-laugh-beam show-icon"></i>
@@ -25,17 +24,23 @@
         <% else %>
           <i class="fa-light far fa-circle-question show-icon"></i>
         <% end %>
-        <p class='pt-4'><%= @item.reason %></p>
+        <p class='pt-3'><strong><%= @item.reason %></strong></p>
       </div>
-      <div class='py-4'>
-        <%= link_to 'Link to item', @item.link %>
+      <div class='py-3 px-5'>
+        <div class='pb-4'>
+          <%= link_to 'Link to item', @item.link, target: "_blank" %>
+        </div>
+        <p><strong>Cost:</strong> <%= number_to_currency(@item.value) %></p>
+        <p><strong>Status:</strong> !!Update with Status!!</p>
+        <p><strong>Description:</strong> <%= @item.description %></p>
       </div>
-      <div class='d-inline-flex py-4'>
+      <div class='d-inline-flex py-1'>
 <%# Abandon will need to set status. Buy will need to direct to questionaire. %>
         <%= link_to 'Abandon', items_path, class: 'btn btn-lg wht-btn mx-2' %>
         <%= link_to 'Buy', items_path, class: 'btn btn-lg gen-btn mx-2' %>
         <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg wht-btn mx-2' %>
       </div>
+        <%= link_to 'Back', items_path, class: 'py-2' %>
     </div>
   </div>
 </div>
