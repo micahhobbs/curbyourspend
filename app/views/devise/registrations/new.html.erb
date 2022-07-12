@@ -1,56 +1,86 @@
-<div class='container'>
-  <div class='row py-5'>
-    <div class='col-5 align-self-center'>
-      <ul style='list-style: none;'>
-        <li><p style="color: #52b788"><i class="fa-solid fa-circle-check"></i><Strong> Eliminate</Strong></p></li>
-        <li><p>Eliminate impulse spending and buyers remorse.</p></li>
-        <li><p style="color: #52b788"><i class="fa-solid fa-circle-check"></i><Strong> Track</Strong></p></li>
-        <li><p>Track everything you want.</p></li>
-        <li><p style="color: #52b788"><i class="fa-solid fa-circle-check"></i><Strong> Buy</Strong></p></li>
-        <li><p>Only buy the things that you really need.</p></li>
-      </ul>
+<div class='row p-0'>
+  <div class='col-7 min-vh-75'>
+    <div class="row align-center py-5">
+      <div class='col-8 border px-5 py-3 bg-white m-auto'>
+        <h3 class='py-4 text-center fs-1'>Create Account</h1>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <div class='py-1'>
+              <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: 'First Name',
+                          input_html: { autocomplete: "first name" }%>
+            </div>
+            <div class='py-1'>
+              <%= f.input :last_name,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: 'Last Name',
+                          input_html: { autocomplete: "last name" }%>
+            </div>
+            <div class='py-1'>
+              <%= f.input :username,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: 'Username',
+                          input_html: { autocomplete: "username" }%>
+            </div>
+            <div class='py-1'>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: 'Email',
+                          input_html: { autocomplete: "email" }%>
+            </div>
+            <div class='py-1'>
+              <%= f.input :photo, as: :file,
+                          label: false,
+                          hint: ('Please select a profile picture.'),
+                          required: false %>
+            </div>
+            <div class='py-1'>
+              <%= f.input :password,
+                          required: true,
+                          label: false,
+                          placeholder: 'Password',
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class='py-1'>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          label: false,
+                          placeholder: 'Confirm Password',
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class='py-1'>
+              <%= f.input :profile_visible,
+                          required: true,
+                          autofocus: true%>
+            </div>
+          </div>
+          <div class="form-actions text-center d-grid">
+            <%= f.button :submit, "Sign Up", class: 'btn rounded-pill btn-lg gen-btn my-3' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class='col-6 align-self-center border px-5 py-3 bg-white'>
-      <h3 class='py-3'>Create Your Curb Account</h1>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :first_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "first name" }%>
-          <%= f.input :last_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "last name" }%>
-          <%= f.input :username,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "username" }%>
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :photo, as: :file,
-                      required: false %>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :profile_visible,
-                      required: true,
-                      autofocus: true%>
+  </div>
+  <div class='col-5 min-vh-75 py-4' id='cta'>
+    <div class="row">
+      <div class='container text-center m-auto mt-5'>
+        <h2 class='text-white fs-1 py-2'>Already have an account?</h2>
+        <p class='text-white'>Sign in to your Curb Your Spend account.</p>
+        <div class='d-grid col-6 container'>
+          <%= link_to "Sign In", new_session_path(resource_name), class: 'btn btn-lg rounded-pill wht-btn my-3' %>
         </div>
-        <div class="form-actions text-center">
-          <%= f.button :submit, "Create account", class: 'btn btn-lg gen-btn mb-3' %>
-          <p>Have an account? <%= render "devise/shared/links" %></p>
-        </div>
-      <% end %>
-
+      </div>
     </div>
   </div>
 </div>
