@@ -19,7 +19,6 @@ ChartJS.register(
   Legend
 );
 
-
 const ItemsBar = ({items}) => {
 
   const options = {
@@ -43,11 +42,28 @@ const ItemsBar = ({items}) => {
   };
 
   items.sort((a, b) => {
-    return b.end_date - a.end_date;
+    const a_date = Date.parse(a.end_date)
+    const b_date = Date.parse(b.end_date)
+    return b_date - a_date;
   });
 
-  const labels = items.map((item) => `${item.name} [${item.end_date}]`);
-  const barcolors = items.map((item) =>'#' + Math.floor(Math.random()*16777215).toString(16))
+  const labels = items.map((item) => `${item.name} [${item.end_date}] (${item.status})`);
+  const barcolors = items.map((item) => {
+    let color = '#ffff00'
+    switch(item.status) {
+      case "Purchased":
+        color = '#ff6666'
+        break;
+      case "Abandoned":
+        color = '#66ff66'
+        break;
+      default:
+        color = '#ffff00'
+    }
+    return color
+  }
+  )
+
   const data = {
   labels: labels,
   datasets: [{
