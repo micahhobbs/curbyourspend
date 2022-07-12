@@ -8,6 +8,7 @@
             <%= f.input :first_name, required: true, autofocus: true %>
             <%= f.input :last_name, required: true, autofocus: true %>
             <%= f.input :username, required: true, autofocus: true %>
+
             <%= f.input :email, required: true, autofocus: true %>
             <%= f.input :profile_visible, required: true, autofocus: true %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,6 +21,10 @@
             <%= f.input :password_confirmation,
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
+            <%= f.input :avatar, as: :file,
+                        label: false,
+                        hint: ('Please select a profile picture.'),
+                        required: false %>
             <%= f.input :current_password,
                         hint: "We require your current password to confirm your changes",
                         required: true,
