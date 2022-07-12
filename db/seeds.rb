@@ -116,6 +116,7 @@ item3 = Item.create!(
     start_date: rand_date - 10,
     end_date: rand_date,
     status: status,
+    reason: ['Fun', 'Fitness', 'Productivity', 'Technology', 'Other'].sample,
     user_id: [1,2,3].sample,
   )
 }
