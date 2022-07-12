@@ -1,20 +1,27 @@
 <div class='container'>
   <div class='row py-5'>
     <div class='col-6 container align-self-center border py-3 px-5 bg-white'>
-      <h3 class='py-3'>Forgot your password?</h1>
+      <h3 class='py-4 text-center fs-1'>Reset Password</h1>
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
+          <div class='py-1'>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        label: false,
+                        placeholder: 'Email',
+                        hint: '* Instructions will be sent to your nominated email address',
+                        input_html: { autocomplete: "email" } %>
+          </div>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Reset password", class: 'btn btn-lg gen-btn mb-3' %>
+        <div class="form-actions d-grid">
+          <%= f.button :submit, "Reset password", class: 'btn rounded-pill btn-lg gen-btn my-3' %>
         </div>
       <% end %>
-      <%= render "devise/shared/links" %>
+      <div class='py-1 text-center'>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
