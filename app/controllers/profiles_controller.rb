@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class ProfilesController < ApplicationController
   def index
     @users = User.where(profile_visible: "true")
   end
