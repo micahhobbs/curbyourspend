@@ -27,7 +27,7 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown" role="button">
             <% if current_user.avatar.present?  %>
-            <%= cl_image_tag(current_user.avatar.key, height: 50, width: 50, crop: :thumb, gravity: :faces, class: "avatar-large dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <%= cl_image_tag(current_user.avatar.key, height: 50, width: 50, crop: :thumb, gravity: :faces, class: "avatar-large dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
             <% else %>
               <%= image_tag ('pig.png'), class: "avatar-large dropdown-toggle", style: "border: 1px solid lightgrey; max-width: 50px;", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
