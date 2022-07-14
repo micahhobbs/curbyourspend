@@ -8,6 +8,10 @@
             <%= f.input :first_name, required: true, autofocus: true %>
             <%= f.input :last_name, required: true, autofocus: true %>
             <%= f.input :username, required: true, autofocus: true %>
+            <%= f.input :avatar, as: :file,
+                        label: false,
+                        hint: ('Please select a profile picture.'),
+                        required: false %>
             <%= f.input :email, required: true, autofocus: true %>
             <%= f.input :profile_visible, required: true, autofocus: true %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
