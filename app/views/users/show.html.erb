@@ -1,12 +1,24 @@
-<div class="container py-5">
-  <%= image_tag("pig.png", class: "border rounded-circle") %>
-  <div class="d-flex py-3 align-items-center">
-    <h1 class="mb-0"><%= @user.first_name + " " + @user.last_name %></h1>
-    <svg viewBox="0 0 24 24" role="presentation" style="width: 40px; height: 40px;"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" style="fill: rgb(0, 181, 183);"></path></svg>
-  </div>
-  <p>Member since <%= @user.created_at.strftime("%B %d, %Y") %></p>
-  <%# TODO %>
-  <% @user.items.each do |item| %>
-    <p><%= item.name %></p>
+<h1><%=@user.first_name%>'s' Items</h1>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Value</th>
+    <th>Description</th>
+    <th>Link</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Action</th>
+  </tr>
+  <%  @user.items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td>$<%= item.value %></td>
+        <td><%= item.description %></td>
+        <td><%= link_to item.link, item.link %></td>
+        <td><%= item.start_date %></td>
+        <td><%= item.end_date %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      </tr>
   <% end %>
-</div>
+</table>

@@ -4,9 +4,6 @@ class PagesController < ApplicationController
   def home
   end
 
-  def dashboard
-  end
-
   def calendar
     # Scope your query to the dates being shown:
     start_date = params.fetch(:start_date, Date.today).to_date
