@@ -1,52 +1,86 @@
-<div class='container'>
-  <div class='row pt-5 pb-0'>
-    <div class='col-6 container border mt-3 px-5 py-3 bg-white'>
-      <h2 class='py-2'>Edit <%= resource_name.to_s.humanize %></h2>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
+<div class='row p-0'>
+  <div class='col-8 min-vh-100 py-5'>
+    <div class="container col-10 px-5 py-3 bg-white">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
           <div class="form-inputs">
-            <%= f.input :first_name, required: true, autofocus: true %>
-            <%= f.input :last_name, required: true, autofocus: true %>
-            <%= f.input :username, required: true, autofocus: true %>
-            <%= f.input :avatar, as: :file,
-                        label: false,
-                        hint: ('Please select a profile picture.'),
-                        required: false %>
-            <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :profile_visible, required: true, autofocus: true %>
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-            <% end %>
-            <%= f.input :password,
-                        hint: "Please leave blank if you don't want to change your password",
-                        required: false,
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: false,
-                        input_html: { autocomplete: "new-password" } %>
+            <h1 class='py-4 text-center'>Update Account Details</h2>
+            <div class='py-1'>
+              <h4 class='pt-2'>Personal Details</h4>
+              <%= f.input :first_name, required: true, autofocus: true %>
+            </div>
+            <div class='py-1'>
+              <%= f.input :last_name, required: true, autofocus: true %>
+            </div>
+            <div class='py-1'>
+              <%= f.input :email, required: true, autofocus: true %>
+            </div>
+            <div class='py-1'>
+              <%= f.input :username, required: true, autofocus: true %>
+            </div>
+            <div class='py-1'>
+              <h4 class='pt-2'>Profile Picture</h2>
+              <%= f.input :avatar, as: :file,
+                          label: false,
+                          hint: ('Please select a profile picture.'),
+                          required: false %>
+            </div>
+            <div class='py-1'>
+              <h4 class='pt-2'>Profile Visibility</h2>
+              <p>Would you like your account to be visible to other users?</p>
+              <%= f.input :profile_visible, required: true, autofocus: true %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                <% end %>
+            </div>
+            <div class='py-1'>
+              <h4 class='pt-2'>Update Password</h2>
+              <%= f.input :password,
+                          hint: "Please leave blank if you don't want to change your password",
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+          </div>
+          <div class='py-1'>
+            <h4 class='pt-2'>Confirm Password</h2>
+            <p>Please enter your password to confirm changes before submitting.</p>
             <%= f.input :current_password,
                         hint: "We require your current password to confirm your changes",
                         required: true,
                         input_html: { autocomplete: "current-password" } %>
+            <div class="form-actions">
+              <div class='d-grid col-6 container py-2'>
+                <%= f.button :submit, "Submit Changes", class: 'btn btn-lg rounded-pill gen-btn my-3' %>
+              </div>
           </div>
-          <div class="form-actions">
-            <div class='text-center my-2'>
-              <%= f.button :submit, "Update", class: 'btn btn-lg gen-btn' %>
-            </div>
-          </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class='container col-10 px-5 mt-5 py-3 bg-white'>
+      <h4>Cancel Account</h3>
+      <p>Are you sure you want to cancel your account?</p>
+      <div class='d-grid col-6 container'>
+        <%= link_to "Cancel Account", registration_path(resource_name), class: 'btn btn-lg btn-danger rounded-pill', data: { confirm: "Are you sure?" }, method: :delete %></p>
+      </div>
     </div>
   </div>
-</div>
-<div class='container'>
-  <div class='row py-5'>
-    <div class='col-6 container border py-3 bg-white px-5'>
-      <h3>Cancel my account</h3>
-        <p>Are you sure you want to cancel your account?</p>
-        <div class='d-inline-flex'>
-          <%= link_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
-          <%= link_to "Back", :back, class: 'btn gen-btn mx-2' %>
-        </div>
+  <div class="col-4 min-vh-100 pt-5" id='cta'>
+    <div class="container d-grid flex-column col-9 align-center justify-content-center bg-light pt-4" style='border-radius: 5px;'>
+      <% if current_user.avatar.present?  %>
+        <%= cl_image_tag(current_user.avatar.key, class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid") %>
+      <% else %>
+        <%= image_tag ('pig.png'), class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid" %>
+      <% end %>
+      <ul class='plist-group list-group-flush py-3 px-2'>
+        <li class="list-group-item"><strong>Items Created:</strong> <%= current_user.items.count %></li>
+        <li class="list-group-item"><strong>Total Comments:</strong> <%= current_user.comments.count %></li>
+        <li class="list-group-item"><strong>Account Created:</strong> <%= current_user.created_at.strftime('%d/%m/%Y') %></li>
+        <li class="list-group-item"><strong>Last Updated:</strong> <%= current_user.updated_at.strftime('%d/%m/%Y') %></li>
+      </ul>
+      <%= link_to "Back", :back, class: 'btn gen-btn mx-2 my-2' %>
     </div>
   </div>
 </div>
