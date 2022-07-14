@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.where(profile_visible: "true")
+    @users = User.all
   end
 
   def show

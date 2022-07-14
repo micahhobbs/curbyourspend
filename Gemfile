@@ -21,8 +21,6 @@ gem 'turbolinks', '~> 5'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'faker'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'cloudinary', '~> 1.16.0'
@@ -31,7 +29,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
-gem 'react-rails'
 gem "simple_calendar", "~> 2.4"
 
 gem 'autoprefixer-rails', '10.2.5'
