@@ -3,7 +3,7 @@
   <p><%= pluralize(@users.count, "result", plural: "results") %></p>
   <div class="cards my-5">
     <% @users.each do |user| %>
-      <%= link_to user_profile_path(user) do %>
+      <%= link_to profile_path(user) do %>
         <div class="card">
           <div class="card text-center shadow-sm bg-light">
               <div class="card-body">

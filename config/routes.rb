@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :items
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/profiles', to: 'profiles#index'
-  get '/profiles/:id', to: 'profiles#show', as: 'user_profile'
-
+  resources :profiles, only: [:index, :show]
   get "calendar", to: 'pages#calendar'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
