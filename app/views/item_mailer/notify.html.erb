@@ -1,0 +1,9 @@
+
+<h1>Your Items, <%= @user.email %></h1>
+<p>
+These are your items:
+</p>
+<% @items.each do |item| %>.
+<p> <%="#{item.name}:  #{item.description}"%> </p>
+
+<% end %>
