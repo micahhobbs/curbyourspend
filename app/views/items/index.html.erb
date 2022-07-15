@@ -1,6 +1,10 @@
+<ul class="nav navbar bg-white border-top border-bottom py-3 justify-content-end px-5">
+  <li class="nav-item px-1">
+    <%= link_to 'Add new item', new_item_path, class: 'btn btn-secondary' %>
+  </li>
+</ul>
 <div class='container py-3'>
   <h1 class='d-inline'>Your Items</h1>
-  <%= link_to 'Add new item', new_item_path, class: 'btn gen-btn d-inline mx-2' %>
 </div>
 <div class='container'>
   <table class='table table-bordered table-hover all-items'>
