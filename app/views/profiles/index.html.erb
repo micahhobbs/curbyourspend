@@ -1,0 +1,22 @@
+<div class="container my-5">
+  <h1>Profiles</h1>
+  <p><%= pluralize(@users.count, "result", plural: "results") %></p>
+  <div class="cards my-5">
+    <% @users.each do |user| %>
+      <%= link_to profile_path(user) do %>
+        <div class="card">
+          <div class="card text-center shadow-sm bg-light">
+              <div class="card-body">
+                <%= image_tag("pig.png", class: "border rounded-circle", style: "max-width:15%;") %>
+                <div class="d-flex justify-content-center align-items-center">
+                  <h4 class="card-title my-3 px-1 fw-bold"><%= user.first_name + " " + user.last_name %></h4>
+                  <svg viewBox="0 0 24 24" role="presentation" style="width: 20px; height: 20px;"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" style="fill: rgb(0, 181, 183);"></path></svg>
+                </div>
+                <p><%= pluralize(user.items.count, 'item', plural: 'items') %> </p>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
