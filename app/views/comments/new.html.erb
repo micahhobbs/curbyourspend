@@ -1,11 +1,15 @@
-<div class="row p-0">
-  <div class="col-6 border container my-5 py-3 bg-white">
-  <h1 class='py-2'>Leave a comment:</h1>
-  <%= simple_form_for([@item, @comment]) do |f| %>
-    <%= f.input :comment, placeholder: "Enter comment", label: false %>
-    <div class="d-grid col-6 container">
-      <%= f.submit class: "btn gen-btn btn-lg rounded-pill" %>
+<div class='container'>
+  <div class="row py-5">
+    <div class="col-5 container bg-white">
+      <h1 class='py-3 fs-3'>Leave a comment:</h1>
+      <%= simple_form_for([@item, @comment]) do |f| %>
+        <div>
+          <%= f.input :comment, placeholder: "Enter comment", label: false %>
+        </div>
+        <div class="d-grid col-6 container py-2">
+          <%= f.submit class: "btn gen-btn btn-lg rounded-pill mb-2" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
   </div>
 </div>
