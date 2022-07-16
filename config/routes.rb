@@ -11,9 +11,5 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user_profile'
   get "calendar", to: 'pages#calendar'
-<<<<<<< HEAD
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-=======
->>>>>>> bc8fc576be562a935dda395df57e574d40524bd1
   post '/email_test', to: 'pages#email_test'
 end
