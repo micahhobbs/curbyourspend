@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.order(:value).all
   end
 
   def show
@@ -15,11 +15,12 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+    @item.status = "Cooling off"
     if @item.save
       redirect_to items_path
     else
       render :new
-    end
+    endw
   end
 
   def edit
@@ -38,6 +39,20 @@ class ItemsController < ApplicationController
     @item.destroy
 
     redirect_to items_path
+  end
+
+  def buy
+    @item = Item.find(params[:item_id])
+    @item.status = "Bought"
+    @item.save
+    redirect_to item_path(@item)
+  end
+
+  def abandon
+    @item = Item.find(params[:item_id])
+    @item.status = "Abandon"
+    @item.save
+    redirect_to item_path(@item)
   end
 
   private
