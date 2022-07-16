@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "faker"
 
 puts "Cleaning data..."
 Comment.destroy_all
@@ -44,6 +45,21 @@ lachy = User.create!(
   profile_visible: true,
 )
 
+10.times do |count|
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  user = User.create!(
+  first_name: first_name,
+  last_name: last_name,
+  username: first_name + last_name,
+  email: "#{first_name}@email.com",
+  password: "password",
+  password_confirmation: "password",
+  profile_visible: true,
+)
+end
+
+# TODO: Add 5-10 items for each user
 
 item1 = Item.create!(
   name: "Samsung 75 inch 4K Smart TV",
@@ -80,6 +96,5 @@ item3 = Item.create!(
   end_date: Date.new(2022, 7, 14),
   user_id: 3,
 )
-
 
 puts "Seed complete."
