@@ -75,5 +75,6 @@
     <div class='container py-5'>
       <%= pie_chart Item.group(:name).count %>
     </div>
+    <%= line_chart Item.group_by_month(:created_at).sum(:value) %>
   </div>
 </div>
