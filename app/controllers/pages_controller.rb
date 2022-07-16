@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
   def email_test
     current_user.notify
+    redirect_back(fallback_location: root_path)
   end
 
 end
