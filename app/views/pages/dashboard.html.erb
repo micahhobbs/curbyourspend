@@ -1,3 +1,4 @@
+<%# Page not styled. %>
 <div class="row py-5">
   <div class='container col-11 bg-white'>
     <div class='fs-1 py-2'>
@@ -29,6 +30,7 @@
       </div>
       <div class="col-4">
         <div class="card" style="width: 18rem;">
+<%# Once status added can calculate <%= current_user.items.sum(:value).where(status: "Active")  %> %>
           <div class="card-body">
             <h5 class="card-title">Money Saved</h5>
             <p class="card-text">Update once status added.</p>
@@ -51,6 +53,7 @@
         </thead>
         <tbody>
           <%  current_user.items.each do |item| %>
+<%# Update to include && item.status == 'Active' once status included. %>
             <% if item.user_id == current_user.id %>
               <tr onclick="location.href='<%= item_path(item.id) %>'">
                 <td><%= item.name %></td>
@@ -65,6 +68,7 @@
         </tbody>
       </table>
     </div>
+<%# Need to investigate options for graphs further. Simple placeholders below. %>
     <div class='container py-5'>
       <%= bar_chart Item.group(:name).sum(:value) %>
     </div>
