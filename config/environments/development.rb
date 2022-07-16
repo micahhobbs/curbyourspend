@@ -10,7 +10,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'curbyourspend.com',
     user_name:            'curbyourspend@gmail.com',
-    password:             'iucnwgmyjmkcfecc',
+    password:             ENV['SITE_EMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true,
     open_timeout:         5,
