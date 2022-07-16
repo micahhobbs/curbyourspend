@@ -1,5 +1,5 @@
 <div class='container py-5'>
-  <div class='row border p-0 regular-shadow'>
+  <div class='row p-0 regular-shadow'>
     <div class='col-6 d-flex flex-column justify-content-center align-items-center' id='cta'>
       <div class='border border-dark border-1'>
         <% if @item.photo.key %>
@@ -43,10 +43,10 @@
         <%= link_to 'Back', items_path, class: 'py-2' %>
     </div>
     <div class='col-13 bg-white mt-4 py-4 px-5'>
-      <div class='d-flex py-1 justify-content-between pb-2'>
+      <div class='d-flex py-1 justify-content-between pb-3'>
         <h2>Comments</h2>
         <div class='d-grid col-2'>
-          <%= link_to 'Add Comment', new_item_comment_path(@item.id), class: 'btn gen-btn' %>
+          <%= link_to 'Add Comment', new_item_comment_path(@item.id), class: 'btn btn-lg gen-btn' %>
         </div>
       </div>
       <% if @item.comments.present? %>

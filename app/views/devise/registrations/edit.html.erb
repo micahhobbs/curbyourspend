@@ -1,11 +1,11 @@
 <div class='row p-0'>
   <div class='col-8 min-vh-100 py-5'>
-    <div class="container col-10 px-5 py-3 bg-white">
+    <div class="container col-9 px-5 py-3 bg-white">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
             <h1 class='py-4 text-center'>Update Account Details</h2>
-            <div class='py-1'>
+            <div class='py-1 pt-3'>
               <h4 class='pt-2'>Personal Details</h4>
               <%= f.input :first_name, required: true, autofocus: true %>
             </div>
@@ -59,20 +59,20 @@
         <% end %>
       </div>
     </div>
-    <div class='container col-10 px-5 mt-5 py-3 bg-white'>
-      <h4>Cancel Account</h3>
+    <div class='container col-9 px-5 mt-5 py-3 bg-white'>
+      <h4 class='pt-3'>Cancel Account</h3>
       <p>Are you sure you want to cancel your account?</p>
       <div class='d-grid col-6 container'>
-        <%= link_to "Cancel Account", registration_path(resource_name), class: 'btn btn-lg btn-danger rounded-pill', data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <%= link_to "Cancel Account", registration_path(resource_name), class: 'btn btn-lg btn-danger text-white rounded-pill my-3', data: { confirm: "Are you sure?" }, method: :delete %></p>
       </div>
     </div>
   </div>
   <div class="col-4 min-vh-100 pt-5" id='cta'>
-    <div class="container d-grid flex-column col-9 align-center justify-content-center bg-light pt-4" style='border-radius: 5px;'>
+    <div class="container d-grid flex-column col-9 align-center justify-content-center bg-light pt-4">
       <% if current_user.avatar.present?  %>
         <%= cl_image_tag(current_user.avatar.key, class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid") %>
       <% else %>
-        <%= image_tag ('pig.png'), class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid" %>
+        <%= image_tag ('default-avatar.png'), class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid" %>
       <% end %>
       <ul class='plist-group list-group-flush py-3 px-2'>
         <li class="list-group-item"><strong>Items Created:</strong> <%= current_user.items.count %></li>
