@@ -21,4 +21,10 @@ class User < ApplicationRecord
   def expiring_items
     items.all
   end
+
+  def notifications
+    notifications = []
+    notifications + expiring_items
+  end
+
 end
