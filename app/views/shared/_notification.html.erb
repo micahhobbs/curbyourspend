@@ -1,5 +1,5 @@
 <div class = "notification">
-  <a href = "#">
+  <a class='notification-anchor' href = "#">
   <div class = "notBtn" href = "#">
     <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
     <div class = "number"><%=current_user.notifications.length%></div>
@@ -13,8 +13,8 @@
           <div class = "cont"><!-- Fold this div and try deleting evrything inbetween -->
              <% current_user.notifications.each do |item| %>
              <div class = "sec new">
-               <a href = <%= "/items/#{item.id}" %> >
-               <div class = "txt">Your item, <strong><%=item.name %></strong> is there"</div>
+               <a class='notification-anchor' href = <%= "/items/#{item.id}" %> >
+               <div class = "txt">Your item, <strong><%=item.name %></strong> is there</div>
               <div class = "txt sub">11/7 - 2:30 pm</div>
                </a>
             </div>
