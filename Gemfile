@@ -28,9 +28,9 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-
+gem "groupdate"
 gem "simple_calendar", "~> 2.4"
-
+gem "chartkick"
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 6.1', '>= 6.1.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
