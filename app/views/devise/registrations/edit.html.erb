@@ -1,3 +1,11 @@
+<ul class="nav navbar bg-white border-top border-bottom py-3 justify-content-end px-5">
+  <li class="nav-item px-1">
+    <%= link_to 'My Items', items_path, class: 'btn btn-secondary' %>
+  </li>
+  <li class="nav-item px-1">
+    <%# Add dashboard link once built. %>
+  </li>
+</ul>
 <div class='row p-0'>
   <div class='col-8 min-vh-100 py-5'>
     <div class="container col-9 px-5 py-3 bg-white">
@@ -80,7 +88,6 @@
         <li class="list-group-item"><strong>Account Created:</strong> <%= current_user.created_at.strftime('%d/%m/%Y') %></li>
         <li class="list-group-item"><strong>Last Updated:</strong> <%= current_user.updated_at.strftime('%d/%m/%Y') %></li>
       </ul>
-      <%= link_to "Back", :back, class: 'btn gen-btn mx-2 my-2' %>
     </div>
   </div>
 </div>

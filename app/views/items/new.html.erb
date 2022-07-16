@@ -1,8 +1,12 @@
+<ul class="nav navbar bg-white border-top border-bottom py-3 justify-content-end px-5">
+  <li class="nav-item px-1">
+    <%= link_to 'My Items', items_path, class: 'btn btn-secondary' %>
+  </li>
+</ul>
 <div class="row py-5">
   <div class="col-6 container mt-3 py-3 border bg-white">
     <div class='container text-left my-4'>
       <h1 class='d-inline'>Create new item</h1>
-      <%= link_to 'Back', items_path, class: 'btn gen-btn d-inline mx-2' %>
     </div>
     <div class='text-center px-5'>
       <%= render partial: 'shared/form', item: @item %>
