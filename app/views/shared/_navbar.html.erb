@@ -32,7 +32,7 @@
               <%= image_tag ('default-avatar.png'), class: "avatar-large dropdown-toggle justify-content-bottom", style: "border: 1px solid lightgrey; max-width: 50px;", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
               <%= link_to "My Items", items_path, class: "dropdown-item" %>
               <%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Notify Yourself (Test)", '/email_test', method: :post, class: "dropdown-item"%>
