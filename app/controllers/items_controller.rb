@@ -42,12 +42,6 @@ class ItemsController < ApplicationController
 
   private
 
-  def email_notification
-    User.all.each do |user|
-      ItemMailer.with(user: user).notify.deliver_now
-    end
-  end
-
   def item_params
     params.require(:item).permit(:name, :value, :photo, :reason, :description, :link, :start_date, :end_date)
   end
