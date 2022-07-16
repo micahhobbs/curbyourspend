@@ -1,0 +1,79 @@
+<%# Page not styled. %>
+<div class="row py-5">
+  <div class='container col-11 bg-white'>
+    <div class='fs-1 py-2'>
+      <h1>Hey <% if current_user.first_name.present? %>
+        <%= current_user.first_name %>
+      <% elsif current_user.username.present? %>
+        <%= current_user.username %>
+      <% else %>
+        <%= current_user.email %>!</h1>
+      <% end %>
+    </div>
+    <div class="row px-5">
+      <h2 class='py-2'>Summary</h2>
+      <div class="col-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Total Items</h5>
+            <p class="card-text"><%= current_user.items.count %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Total Value of Items</h5>
+            <p class="card-text"><%= number_to_currency(current_user.items.sum(:value)) %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card" style="width: 18rem;">
+<%# Once status added can calculate <%= current_user.items.sum(:value).where(status: "Active")  %> %>
+          <div class="card-body">
+            <h5 class="card-title">Money Saved</h5>
+            <p class="card-text">Update once status added.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='py-4 px-5'>
+    <h2>Your Items (Active)</h2>
+      <table class='table table-bordered table-hover all-items'>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Value</th>
+            <th scope="col">Reason</th>
+            <th scope="col">Days Left</th>
+            <th scope="col">Recommendation</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%  current_user.items.each do |item| %>
+<%# Update to include && item.status == 'Active' once status included. %>
+            <% if item.user_id == current_user.id %>
+              <tr onclick="location.href='<%= item_path(item.id) %>'">
+                <td><%= item.name %></td>
+                <td><%= number_to_currency(item.value) %></td>
+                <td><%= item.reason %></td>
+                <td><%= (item.end_date - Date.today).to_i %></td>
+                <td>Recommendation Data</td>
+                <td>Status Data</td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+<%# Need to investigate options for graphs further. Simple placeholders below. %>
+    <div class='container py-5'>
+      <%= bar_chart Item.group(:name).sum(:value) %>
+    </div>
+    <div class='container py-5'>
+      <%= pie_chart Item.group(:name).count %>
+    </div>
+  </div>
+</div>
