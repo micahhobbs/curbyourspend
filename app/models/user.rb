@@ -17,4 +17,8 @@ class User < ApplicationRecord
       user.notify
     end
   end
+
+  def expiring_items
+    items.all
+  end
 end
