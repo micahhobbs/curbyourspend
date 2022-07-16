@@ -26,7 +26,7 @@ micah = User.create!(
 phil = User.create!(
   first_name: "Phil",
   last_name: "Tan",
-  email: "phil@email.com",
+  email: "philcode40@gmail.com",
   password: "password",
   password_confirmation: "password",
   profile_visible: true,

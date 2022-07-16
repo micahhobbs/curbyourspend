@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css" media="screen">
+    </style>
+</head>
+<body>
+
+<p>Hi <%= @user.first_name %>,</p>
+<p>
+Your cooling period is expiring for the following items:
+</p>
+<div class='container py-3'>
+  <h1 class='d-inline'>Your Expiring Items</h1>
+</div>
+<div class='container'>
+  <table class='table table-bordered table-hover all-items'>
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Value</th>
+        <th scope="col">Reason</th>
+        <th scope="col">Description</th>
+        <th scope="col">Link</th>
+        <th class='date-col' scope="col">Start Date</th>
+        <th class='date-col' scope="col">End Date</th>
+        <th scope="col">Action</th>
+     </tr>
+    </thead>
+    <tbody>
+      <%  @items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= number_to_currency(item.value) %></td>
+          <td><%= item.reason %></td>
+          <td><%= item.description %></td>
+          <td><%= link_to item.link, item.link %></td>
+          <td class='date-col'><%= item.start_date %></td>
+          <td class='date-col'><%= item.end_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</html>
