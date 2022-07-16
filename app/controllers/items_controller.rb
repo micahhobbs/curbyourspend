@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       redirect_to items_path
     else
       render :new
-    endw
+    end
   end
 
   def edit
