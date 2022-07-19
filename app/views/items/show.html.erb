@@ -17,11 +17,11 @@
 <div class='container py-5'>
   <div class='row p-0 regular-shadow'>
     <div class='col-6 d-flex flex-column justify-content-center align-items-center' id='cta'>
-      <div class='border border-dark border-1'>
+      <div class='border border border-1'>
         <% if @item.photo.key %>
           <%= cl_image_tag @item.photo.key, height: 500, width: 600, crop: :fill %>
         <% else %>
-          <%= image_tag('pig.png', height: 500, width: 600) %>
+          <%= image_tag('no-img.png', height: 500, width: 600) %>
         <% end  %>
       </div>
     </div>
