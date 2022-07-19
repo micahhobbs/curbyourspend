@@ -81,6 +81,9 @@
         </tbody>
       </table>
     </div>
+    <div class='col-12 px-5 py-3 h-25'>
+      <%= render partial: "dashcalendar", locals: {events: current_user.items} %>
+    </div>
 <%# Need to investigate options for graphs further. Simple placeholders below. %>
     <div class='container py-5'>
       <%= bar_chart Item.group(:name).sum(:value) %>
