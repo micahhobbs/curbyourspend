@@ -1,0 +1,10 @@
+  <%= week_calendar events: current_user.items, end_attribute: :end_date, attribute: :start_date do |date, items| %>
+    <%= date %>
+    <% items.each do |item| %>
+      <div class="item h-25">
+        <%= link_to item, class: "text-decoration-none text-white" do %>
+          <p><%= item.name.slice(0,15)... %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
