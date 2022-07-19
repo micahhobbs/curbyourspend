@@ -6,10 +6,12 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @items = @user.items
-    @value = 0
+    @total_value_saved = 0
+    @total_items_adandoned_count = 0
     @items.each do |item|
-      if item.status == nil # TODO update when status set in model
-        @value += item.value
+      if item.status == "Abandoned"
+        @total_value_saved += item.value
+        @total_items_adandoned_count += 1
       end
     end
   end

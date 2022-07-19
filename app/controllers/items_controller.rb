@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
 
   def abandon
     @item = Item.find(params[:item_id])
-    @item.status = "Abandon"
+    @item.status = "Abandoned"
     @item.save
     redirect_to item_path(@item)
   end
