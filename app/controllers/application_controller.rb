@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  user.items.each do |item|
+    if item.end_date == Today.Date
+      CommentNotification.with(item: item, message: "#{item.name} is now ready to be reviewed.").deliver(item.user)
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
