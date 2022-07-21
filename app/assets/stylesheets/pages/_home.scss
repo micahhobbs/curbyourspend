@@ -3,13 +3,21 @@
   background: linear-gradient(90deg, rgb(44, 198, 192) 0%, rgb(173, 214, 169) 100%)
 }
 
+#benefits .card {
+  min-height: 500px;
+}
+
+.col-sm-6 .card-body {
+  min-height: 400px;
+}
+
 .row {
   padding-top: 150px;
   padding-bottom: 150px;
 }
 
 .tag-line {
-  font-size: 60px;
+  font-size: 75px;
 }
 
 .heading {
@@ -27,4 +35,8 @@
 
 i {
   padding-top: 28px;
+}
+
+.header-gradient {
+  background: linear-gradient(90deg, rgb(44, 198, 192) 0%, rgb(173, 214, 169) 100%)
 }
