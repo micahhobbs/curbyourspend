@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   resources :items do
     resources :comments, only: [:new, :create]
   end
+  resources :comments, only: [:destroy]
 
   post 'items/:item_id/buy', to: 'items#buy', as: 'item_buy'
   post 'items/:item_id/abandon', to: 'items#abandon', as: 'item_abandon'
 
-  resources :comments, only: [:destroy]
   resources :profiles, only: [:index, :show]
 
   get 'dashboard', to: 'pages#dashboard'
