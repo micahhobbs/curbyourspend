@@ -1,14 +1,20 @@
 <li class="nav-item dropdown notification-li" role="button">
-  <i class="fas fa-bell dropdown-toggle notification-icon" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-    <div class="position-absolute translate-middle badge rounded-pill bg-danger">
-    <%=current_user.notifications.unread.length%></div></i>
-  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-    <% current_user.notifications.unread.each do |notification| %>
-      <% if notification.type == "CommentNotification" %>
-        <%= link_to notification.params[:message], "/items/#{notification.params[:comment].item_id}", class: "dropdown-item" %>
-      <% else  %>
-        <%= link_to notification.params[:message], "/items/#{notification.params[:item].id}", class: "dropdown-item" %>
-      <% end %>
+  <i class="fas fa-bell notification-icon" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <% if current_user.notifications.unread.length > 0 %>
+      <div class="position-absolute translate-middle badge rounded-pill bg-danger">
+        <%=current_user.notifications.unread.length%>
+      </div>
     <% end %>
-  </div>
+  </i>
+  <% if current_user.notifications.unread.length > 0 %>
+    <div class="dropdown-menu dropdown-menu-end notification-list" aria-labelledby="navbarDropdown">
+      <% current_user.notifications.unread.each do |notification| %>
+        <% if notification.type == "CommentNotification" %>
+          <%= link_to notification.params[:message], "/items/#{notification.params[:comment].item_id}", class: "dropdown-item" %>
+        <% else  %>
+          <%= link_to notification.params[:message], "/items/#{notification.params[:item].id}", class: "dropdown-item" %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </li>
