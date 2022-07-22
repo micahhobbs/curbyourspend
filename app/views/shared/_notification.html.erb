@@ -1,28 +1,14 @@
-<div class = "notification">
-  <a class='notification-anchor' href = "#">
-  <div class = "notBtn" href = "#">
-    <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
-    <div class = "number"><%=current_user.notifications.length%></div>
-    <i class="fas fa-bell notification-icon"></i>
-      <div class = "box">
-        <div class = "display">
-          <div class = "nothing">
-            <i class="fas fa-child stick"></i>
-            <div class = "cent">Looks Like your all caught up!</div>
-          </div>
-          <div class = "cont"><!-- Fold this div and try deleting evrything inbetween -->
-             <% current_user.notifications.each do |item| %>
-             <div class = "sec new">
-               <a class='notification-anchor' href = <%= "/items/#{item.id}" %> >
-               <div class = "txt">Your item, <strong><%=item.name %></strong> is there</div>
-              <div class = "txt sub">11/7 - 2:30 pm</div>
-               </a>
-            </div>
-             <% end %>
-
-         </div>
-        </div>
-     </div>
+<li class="nav-item dropdown notification-li" role="button">
+  <i class="fas fa-bell dropdown-toggle notification-icon" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="position-absolute translate-middle badge rounded-pill bg-danger">
+    <%=current_user.notifications.unread.length%></div></i>
+  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+    <% current_user.notifications.unread.each do |notification| %>
+      <% if notification.type == "CommentNotification" %>
+        <%= link_to notification.params[:message], "/items/#{notification.params[:comment].item_id}", class: "dropdown-item" %>
+      <% else  %>
+        <%= link_to notification.params[:message], "/items/#{notification.params[:item].id}", class: "dropdown-item" %>
+      <% end %>
+    <% end %>
   </div>
-    </a>
-</div>
+</li>

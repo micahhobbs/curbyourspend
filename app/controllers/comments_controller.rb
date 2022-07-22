@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.item = Item.find(params[:item_id])
     @comment.save
+    CommentNotification.with(comment: @comment, message: "#{@comment.user.first_name} commented on #{@comment.item.name}").deliver(@comment.item.user)
     redirect_to item_path(@comment.item_id)
   end
 

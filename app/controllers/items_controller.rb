@@ -6,6 +6,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    current_user.notifications.each do |notification|
+      if notification.type == 'CommentNotification' && notification.params[:comment].item_id == @item.id
+        notification.mark_as_read!
+      elsif notification.type == 'ItemNotification' && notification.params[:item].item_id == @item.id
+        notification.mark_as_read!
+      end
+    end
     @comment = Comment.new
   end
 
@@ -54,6 +61,14 @@ class ItemsController < ApplicationController
     @item.status = "Abandoned"
     @item.save
     redirect_to item_path(@item)
+  end
+
+  def ready_items
+    Item.all.each do |item|
+      if item.end_date == Date.today
+        ItemNotification.with(item: item, message: "#{item.name} is ready to review.").deliver(item.user)
+      end
+    end
   end
 
   private

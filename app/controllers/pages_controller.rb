@@ -19,5 +19,4 @@ class PagesController < ApplicationController
     current_user.notify
     redirect_back(fallback_location: root_path)
   end
-
 end
