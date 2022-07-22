@@ -6,6 +6,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    current_user.notifications.each do |notification|
+      if notification.type == 'CommentNotification' && notification.params[:comment].item_id == @item.id
+        notification.mark_as_read!
+      elsif notification.type == 'ItemNotification' && notification.params[:item].item_id == @item.id
+        notification.mark_as_read!
+      end
+    end
   end
 
   def new
