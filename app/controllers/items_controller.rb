@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
         notification.mark_as_read!
       end
     end
+    @comment = Comment.new
   end
 
   def new

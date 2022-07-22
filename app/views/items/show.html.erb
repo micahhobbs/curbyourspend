@@ -57,12 +57,13 @@
         <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg wht-btn mx-2' %>
       </div>
     </div>
-    <div class='col-13 bg-white mt-4 py-4 px-5'>
-      <div class='d-flex py-1 justify-content-between pb-3'>
+    <div class='col-12 bg-white mt-4 py-4 px-5'>
+      <div class='w-50'>
         <h2>Comments</h2>
-        <div class='d-grid col-2'>
-          <%= link_to 'Add Comment', new_item_comment_path(@item.id), class: 'btn btn-lg gen-btn' %>
-        </div>
+        <%# <div class='d-grid col-2'> %>
+          <%#= link_to 'Add Comment', new_item_comment_path(@item.id), class: 'btn btn-lg gen-btn' %>
+          <%= render 'shared/comment' %>
+        <%# </div> %>
       </div>
       <% if @item.comments.present? %>
       <div class="bg-light mb-2">
@@ -76,7 +77,11 @@
               <p class="mb-1"><strong>Comment:</strong> <%= comment.comment %></p>
             <% end %>
             <div class='d-flex justify-content-end'>
-              <%= link_to 'Delete', comment_path(comment), class: 'btn wht-btn', method: :delete, data: { confirm: 'Delete this comment?' } %>
+              <%= link_to 'Delete',
+                  comment_path(comment),
+                  method: :delete,
+                  data: { confirm: 'Delete this comment?' },
+                  class: 'btn wht-btn'  %>
             </div>
           </div>
         <% end %>
