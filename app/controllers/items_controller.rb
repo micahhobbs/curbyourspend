@@ -55,6 +55,14 @@ class ItemsController < ApplicationController
     redirect_to item_path(@item)
   end
 
+  def ready_items
+    Item.all.each do |item|
+      if item.end_date == Date.today
+        ItemNotification.with(item: item, message: "#{item.name} is ready to review.").deliver(item.user)
+      end
+    end
+  end
+
   private
 
   def email_notification
