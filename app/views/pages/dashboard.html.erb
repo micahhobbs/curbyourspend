@@ -93,8 +93,5 @@
     <%# Shows the grouping of the users items status' %>
       <%= pie_chart current_user.items.group(:status).count %>
     </div>
-    <div class='col-12 px-5 py-4'>
-      <%= line_chart current_user.items.group_by_month(:created_at).count(:status) %>
-    </div>
   </div>
 </div>
