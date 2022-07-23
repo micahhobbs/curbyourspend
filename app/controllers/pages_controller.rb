@@ -2,9 +2,20 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    ready_items
   end
 
   def dashboard
+  end
+
+  def ready_items
+    if user_signed_in?
+      current_user.items.each do |item|
+        if item.end_date == Date.today
+          ItemNotification.with(item: item, message: "#{item.name} is ready to review.").deliver(item.user)
+        end
+      end
+    end
   end
 
   def calendar
