@@ -14,8 +14,8 @@
         <div class="cards">
           <% @user.items.each do |item| %>
             <%#= link_to item_path(item) do %>
-              <div class="card">
-                <%= cl_image_tag item.photo.key if item.photo.key.present? %>
+              <div class="card" style="max-height: 400px">
+                <%= cl_image_tag item.photo.key, class: "h-50", style: "object-fit: cover;" if item.photo.key.present? %>
                 <div class="card-body d-flex flex-column justify-content-between">
                   <h5 class="card-title"><%= item.name %></h5>
                   <p class="card-text"><%= number_to_currency(item.value) %></p>
