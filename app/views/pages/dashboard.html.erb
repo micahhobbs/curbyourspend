@@ -13,13 +13,7 @@
 <div class="row py-5">
   <div class='container col-11 bg-white px-4'>
     <div class='pt-5 px-5'>
-      <h1 class='fs-1'>Hey<% if current_user.first_name.present? %>
-        <%= current_user.first_name %>
-      <% elsif current_user.username.present? %>
-        <%= current_user.username %>
-      <% else %>
-        <%= current_user.email %>
-      <% end %>!</h1>
+      <h1 class='fs-1'>Hey <%= current_user.first_name || current_user.username || current_user.email %>!</h1>
     </div>
     <div class="row py-5 px-5">
       <h2 class='py-2'>Summary</h2>
