@@ -51,10 +51,11 @@
         </div>
       </div>
       <div class='d-inline-flex py-1'>
-<%# Abandon will need to set status. Buy will need to direct to questionaire. %>
-        <%= link_to 'Abandon', item_abandon_path(@item), method: :post, class: 'btn btn-lg wht-btn mx-2' %>
-        <%= link_to 'Buy',  item_buy_path(@item), method: :post, class: 'btn btn-lg gen-btn mx-2' %>
-        <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg wht-btn mx-2' %>
+        <% if current_user == @item.user %>
+          <%= link_to 'Abandon', item_abandon_path(@item), method: :post, class: 'btn btn-lg wht-btn mx-2' %>
+          <%= link_to 'Buy',  item_buy_path(@item), method: :post, class: 'btn btn-lg gen-btn mx-2' %>
+          <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg wht-btn mx-2' %>
+        <% end %>
       </div>
     </div>
     <div class='col-12 bg-white mt-4 py-4 px-5'>
