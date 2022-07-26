@@ -1,19 +1,19 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container">
       <div class="d-flex align-items-center">
-      <%= link_to "/", class: "navbar-brand fs-3" do %>
+      <%= link_to "/", class: "navbar-brand fs-3 header-txt", style: 'color: #fffffe' do %>
         <%= image_tag "pig.png", class: "align-items-center" %>
         Curb Your Spend.
       <% end %>
       <ul class="navbar-nav fs-4 d-none d-lg-flex">
-        <li class="nav-item">
-          <%= link_to "Benefits", root_path(:anchor => "benefits"), class: "nav-link px-3" %>
+        <li class="nav-item nav-txt">
+          <%= link_to "Benefits", root_path(:anchor => "benefits"), class: "nav-link px-3 header-txt", style: 'color: #fffffe' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Pricing", root_path(:anchor => "pricing"), class: "nav-link px-3" %>
+          <%= link_to "Pricing", root_path(:anchor => "pricing"), class: "nav-link px-3 header-txt", style: 'color: #fffffe' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Profiles", profiles_path, class: "nav-link px-3" %>
+          <%= link_to "Profiles", profiles_path, class: "nav-link px-3 header-txt", style: 'color: #fffffe' %>
         </li>
       </ul>
     </div>

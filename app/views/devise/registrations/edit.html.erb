@@ -1,23 +1,22 @@
-<ul class="nav navbar bg-white border-top border-bottom py-3 justify-content-end px-5">
+<ul class="nav navbar border-top border-bottom py-3 px-5" id='cta'>
   <div class="container d-flex justify-content-end">
-  <li class="nav-item px-1">
-    <%= link_to 'My Items', items_path, class: 'btn btn-secondary' %>
-  </li>
-
+    <li class="nav-item px-2">
+      <%= link_to 'Dashboard', dashboard_path, class: 'btn sec-nav-btn' %>
+    </li>
+    <li class="nav-item px-2">
+      <%= link_to 'My Items', items_path, class: 'btn sec-nav-btn' %>
+    </li>
   </div>
-  <li class="nav-item px-1">
-    <%# Add dashboard link once built. %>
-  </li>
 </ul>
-<div class='row p-0'>
+<div class='row p-0' id='cta'>
   <div class='col-8 min-vh-100 py-5'>
-    <div class="container col-9 px-5 py-3 bg-white">
+    <div class="container col-10 px-5 py-3 light-bg">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
-            <h1 class='py-4 text-center'>Update Account Details</h2>
+            <h1 class='py-4 header-txt' style="color: #001e1d;">Update Account Details</h2>
             <div class='py-1 pt-3'>
-              <h4 class='pt-2'>Personal Details</h4>
+              <h4 class='pt-2 header-txt' style="color: #001e1d;">Personal Details</h4>
               <%= f.input :first_name, required: true, autofocus: true %>
             </div>
             <div class='py-1'>
@@ -30,14 +29,14 @@
               <%= f.input :username, required: true, autofocus: true %>
             </div>
             <div class='py-1'>
-              <h4 class='pt-2'>Profile Picture</h2>
+              <h4 class='pt-2 header-txt' style="color: #001e1d;">Profile Picture</h2>
               <%= f.input :avatar, as: :file,
                           label: false,
                           hint: ('Please select a profile picture.'),
                           required: false %>
             </div>
             <div class='py-1'>
-              <h4 class='pt-2'>Profile Visibility</h2>
+              <h4 class='pt-2 header-txt' style="color: #001e1d;">Profile Visibility</h2>
               <p>Would you like your account to be visible to other users?</p>
               <%= f.input :profile_visible, required: true, autofocus: true %>
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -45,7 +44,7 @@
                 <% end %>
             </div>
             <div class='py-1'>
-              <h4 class='pt-2'>Update Password</h2>
+              <h4 class='pt-2 header-txt' style="color: #001e1d;">Update Password</h2>
               <%= f.input :password,
                           hint: "Please leave blank if you don't want to change your password",
                           required: false,
@@ -56,7 +55,7 @@
             </div>
           </div>
           <div class='py-1'>
-            <h4 class='pt-2'>Confirm Password</h2>
+            <h4 class='pt-2 header-txt' style="color: #001e1d;">Confirm Password</h2>
             <p>Please enter your password to confirm changes before submitting.</p>
             <%= f.input :current_password,
                         hint: "We require your current password to confirm your changes",
@@ -64,22 +63,22 @@
                         input_html: { autocomplete: "current-password" } %>
             <div class="form-actions">
               <div class='d-grid col-6 container py-2'>
-                <%= f.button :submit, "Submit Changes", class: 'btn btn-lg rounded-pill gen-btn my-3' %>
+                <%= f.button :submit, "Submit Changes", class: 'btn btn-lg othr-btn my-3' %>
               </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div class='container col-9 px-5 mt-5 py-3 bg-white'>
-      <h4 class='pt-3'>Cancel Account</h3>
+    <div class='container col-10 px-5 mt-5 py-3 light-bg'>
+      <h4 class='pt-2 header-txt' style="color: #001e1d;">Cancel Account</h3>
       <p>Are you sure you want to cancel your account?</p>
       <div class='d-grid col-6 container'>
-        <%= link_to "Cancel Account", registration_path(resource_name), class: 'btn btn-lg btn-danger text-white rounded-pill my-3', data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <%= link_to "Cancel Account", registration_path(resource_name), class: 'btn btn-lg btn-danger text-white my-3', data: { confirm: "Are you sure?" }, method: :delete %></p>
       </div>
     </div>
   </div>
   <div class="col-4 min-vh-100 pt-5" id='cta'>
-    <div class="container d-grid flex-column col-9 align-center justify-content-center bg-light pt-4">
+    <div class="container d-grid flex-column col-10 align-center justify-content-center light-bg pt-4">
       <% if current_user.avatar.present?  %>
         <%= cl_image_tag(current_user.avatar.key, class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid") %>
       <% else %>

@@ -1,26 +1,53 @@
-
 .gen-btn {
-  background-color: $btn-green;
-  color: white;
-  border-radius: 5px;
-  transition: all .5s;
+  background-color: $btn;
+  color: $btn-txt;
+  opacity: 1;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 15px 0;
 }
 
 .gen-btn:hover {
-  background-color: #fff;
-  color: $btn-green;
-  border: 1px solid $btn-green;
+  box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 60%);
 }
 
 .wht-btn {
-  background-color: #fff;
-  color: $btn-green;
-  border: 1px solid $btn-green;
-  transition: all .5s;
+  background-color: $btn;
+  color: $btn-txt;
 }
 
-.wht-btn:hover {
-  background-color: $btn-green;
-  color: white;
-  border-radius: 5px;
+// .wht-btn:hover {
+//   background-color: $btn-green;
+//   color: white;
+//   border-radius: 5px;
+// }
+
+.sec-nav-btn {
+  background-color: $btn;
+  color: $btn-txt;
+  opacity: 1;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.sec-nav-btn:hover {
+  box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 60%);
+}
+
+.othr-btn {
+  background-color: $btn;
+  color: $btn-txt;
+  opacity: 1;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.othr-btn:hover {
+  box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 60%);
 }

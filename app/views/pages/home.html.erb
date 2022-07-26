@@ -1,99 +1,101 @@
 <div id="cta">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 text-white fs-5">
+      <div class="col-sm-8 text-white fs-5 header-txt" style="color: #fffffe;">
         <p>WELCOME TO CURB YOUR SPEND</p>
-        <p class="font-weight-bolder tag-line lh-sm">
+        <p class="font-weight-bolder tag-line lh-sm header-txt" style="color: #fffffe;">
           Eliminate impulse spending.
         </p>
-        <p class="fs-4">
+        <p class="fs-4 body-txt" style="color: #abd1c6;">
           Track everything you want. Only buy the things that you really need.
         </p>
-        <%= link_to "Start saving now →", new_item_path, class: "w-50 btn btn-light mt-3 mb-5 btn-lg"  %>
+        <%= link_to "Start saving now →", new_item_path, class: "w-50 btn gen-btn mt-3 mb-5 btn-lg header-txt"  %>
       </div>
       <div class="col-sm-4 d-flex flex-column m-auto">
         <%#= link_to "Learn more", root_path, class: "w-50 btn btn-outline-success btn-lg" %>
-        <%= image_tag "money.png" %>
+        <!--<%= image_tag "money.png" %>-->
       </div>
     </div>
   </div>
 </div>
-<div class="bg-white">
+<div class="light-bg">
   <div class="container">
     <div class="row">
-        <h2 id="benefits" class="text-center fw-bold pb-5 heading">Benefits</h2>
+        <h2 id="benefits" class="text-center fw-bold pb-5 heading header-txt" style="color: #001e1d;">Benefits</h2>
         <div class="col-sm-4">
-          <div class="card text-center shadow-sm bg-light">
+          <div class="card text-center shadow-sm" style='background-color: #004643;'>
             <div class="card-body p-5">
               <div class="icon my-4">
                 <i class="fas fa-dollar-sign fs-1"></i>
               </div>
-              <h4 class="card-title mb-4 fw-bold">Take control of your spending</h4>
-              <p class="card-text mb-4">The goal of the Curb Your Spend is to stop impulse purchasing. Give yourself a 'cooling-off' period to think about how much you really need or want the item.</p>
+              <h4 class="card-title mb-4 fw-bold" style='color: #fffffe;'>Take control of your spending</h4>
+              <p class="card-text mb-4 body-txt" style='color: #abd1c6;'>The goal of Curb Your Spend is to stop impulse purchasing. Give yourself a 'cooling-off' period to think about how much you really need or want the item.</p>
             </div>
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="card text-center shadow-sm bg-light">
+          <div class="card text-center shadow-sm" style='background-color: #004643;'>
             <div class="card-body p-5">
               <div class="icon my-4">
                 <i class="fas fa-signal fs-1"></i>
               </div>
-              <h4 class="card-title mb-4 fw-bold">Keep track of things over time</h4>
-              <p class="card-text mb-4">Not buying things you don't need is a key piece of your personal finance puzzle. Capture, organise, and categorise it in one place.</p>
+              <h4 class="card-title mb-4 fw-bold" style='color: #fffffe;'>Keep track of things over time</h4>
+              <p class="card-text mb-4 body-txt" style='color: #abd1c6;'>Not buying things you don't need is a key piece of your personal finance puzzle. Capture, organise, and categorise it in one place.</p>
             </div>
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="card text-center shadow-sm bg-light">
+          <div class="card text-center shadow-sm" style='background-color: #004643;'>
             <div class="card-body p-5">
               <div class="icon my-4">
                 <i class="far fa-smile fs-1"></i>
               </div>
-              <h4 class="card-title mb-4 fw-bold">Be inspired by a community of savers</h4>
-              <p class="card-text mb-4">Follow the savings journeys of your fellow Curbers. Browse through real people’s profiles to see what they want and how much they have saved.</p>
+              <h4 class="card-title mb-4 fw-bold" style='color: #fffffe;'>Be inspired by a community of savers</h4>
+              <p class="card-text mb-4 body-txt" style='color: #abd1c6;'>Follow the savings journeys of your fellow Curbers. Browse through real people’s profiles to see what they want and how much they have saved.</p>
             </div>
           </div>
         </div>
-        <%= link_to "Start saving now →", new_item_path, class: "w-25 btn gen-btn text-white mt-5 mb-5 btn-lg m-auto"  %>
+        <%= link_to "Start saving now →", new_item_path, class: "w-25 btn gen-btn mt-5 mb-5 btn-lg m-auto"  %>
       </div>
   </div>
 </div>
+<div id="cta">
 <div class="container">
   <div class="row">
-    <h2 id="pricing" class="text-center fw-bold pb-5 heading">Pricing</h2>
+    <h2 id="pricing" class="text-center fw-bold pb-5 heading" style="color: #fffffe;">Pricing</h2>
     <div class="col-sm-6">
       <div class="card text-center shadow-sm">
-        <div class="card-header header-gradient text-white">
+        <div class="card-header header-gradient header-txt">
           STARTER
         </div>
-        <div class="card-body">
-          <h4 class="card-title py-4">$0/month</h4>
+        <div class="card-body" style="background-color: #e8e4e6;">
+          <h4 class="card-title py-4 header-txt">$0/month</h4>
           <p class="card-text">Try Curb Your Spend for free. Start taking control of your financial future.</p>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item py-4">🔟 Save up to 10 items</li>
-            <li class="list-group-item py-4">👋 In app notifications</li>
-            <li class="list-group-item py-4">👤 Follow 5 fellow Curber profiles</li>
+            <li class="list-group-item py-4" style="background-color: #e8e4e6;">🔟 Save up to 10 items</li>
+            <li class="list-group-item py-4" style="background-color: #e8e4e6;">👋 In app notifications</li>
+            <li class="list-group-item py-4" style="background-color: #e8e4e6;">👤 Follow 5 fellow Curber profiles</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="card text-center shadow-sm">
-        <div class="card-header header-gradient text-white">
+        <div class="card-header header-gradient header-txt">
           PREMIUM
         </div>
-        <div class="card-body">
-          <h4 class="card-title py-4">$4.99/month</h4>
-          <p class="card-text">Take full advantage of Curb Your Spend. Our premium Curbers save more than 100$+ a month on average.</p>
+        <div class="card-body" style="background-color: #e8e4e6;">
+          <h4 class="card-title py-4 header-txt">$4.99/month</h4>
+          <p class="card-text" >Take full advantage of Curb Your Spend. Our premium Curbers save more than 100$+ a month on average.</p>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item py-4">💰 Add an unlimited number of items</li>
-            <li class="list-group-item py-4">📧 Receive in app and email notifications</li>
-            <li class="list-group-item py-4">👥 Follow as many fellow Curber profiles as you want</li>
+            <li class="list-group-item py-4" style="background-color: #e8e4e6;">💰 Add an unlimited number of items</li>
+            <li class="list-group-item py-4" style="background-color: #e8e4e6;">📧 Receive in app and email notifications</li>
+            <li class="list-group-item py-4" style="background-color: #e8e4e6;">👥 Follow as many fellow Curber profiles as you want</li>
           </ul>
         </div>
       </div>
     </div>
-    <%= link_to "Start saving now →", new_item_path, class: "w-25 btn gen-btn text-white mt-5 mb-5 btn-lg m-auto"  %>
+    <%= link_to "Start saving now →", new_item_path, class: "w-25 btn gen-btn mt-5 mb-5 btn-lg m-auto"  %>
   </div>
+</div>
 </div>
