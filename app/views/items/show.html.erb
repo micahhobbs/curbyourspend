@@ -1,20 +1,22 @@
-<ul class="nav navbar bg-white border-top border-bottom py-3 px-5">
+<div id='cta'>
+  <ul class="nav navbar dark-bg border-top border-bottom py-3 px-5">
   <div class="container d-flex justify-content-end">
     <% if current_user == @item.user %>
       <li class="nav-item px-2">
-        <%= link_to 'Edit Item', edit_item_path, class: 'btn btn-secondary' %>
+        <%= link_to 'Edit Item', edit_item_path, class: 'btn sec-nav-btn' %>
       </li>
       <li class="nav-item px-2">
-        <%= link_to 'Delete Item', item_path(@item), class: 'btn btn-secondary', method: :delete, data: { confirm: 'Are you sure you want to delete this item?' } %>
+        <%= link_to 'Delete Item', item_path(@item), class: 'btn sec-nav-btn', method: :delete, data: { confirm: 'Are you sure you want to delete this item?' } %>
       </li>
     <% end %>
     <li class="nav-item px-2">
-      <%= link_to 'My Items', items_path, class: 'btn btn-secondary' %>
+      <%= link_to 'My Items', items_path, class: 'btn sec-nav-btn' %>
     </li>
 
   </div>
 </ul>
-<div class='container py-5'>
+<div class='container'>
+  <div class='container py-5' >
   <div class='row p-0 regular-shadow'>
     <div class='col-6 d-flex flex-column justify-content-center align-items-center' id='cta'>
       <div class='border border border-1'>
@@ -26,7 +28,7 @@
       </div>
     </div>
     <div class='col-6 d-flex flex-column py-4 justify-content-center align-items-center bg-white'>
-      <h1 class='mx-3 pb-1 pt-3 fs-1'><%= @item.name %></h1>
+      <h1 class='mx-3 pb-1 pt-3 fs-1 header-txt'><%= @item.name %></h1>
       <div class='py-2 d-flex flex-column text-center'>
         <% case @item.reason %>
         <% when "Fun"  %>
@@ -50,11 +52,11 @@
           <%= link_to 'Link to item', @item.link, target: "_blank" %>
         </div>
       </div>
-      <div class='d-inline-flex py-1'>
+      <div class='d-inline py-1'>
         <% if current_user == @item.user %>
-          <%= link_to 'Abandon', item_abandon_path(@item), method: :post, class: 'btn btn-lg wht-btn mx-2' %>
-          <%= link_to 'Buy',  item_buy_path(@item), method: :post, class: 'btn btn-lg gen-btn mx-2' %>
-          <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg wht-btn mx-2' %>
+          <%= link_to 'Abandon', item_abandon_path(@item), method: :post, class: 'btn btn-lg othr-btn mx-2' %>
+          <%= link_to 'Buy',  item_buy_path(@item), method: :post, class: 'btn btn-lg othr-btn mx-2' %>
+          <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg othr-btn mx-2' %>
         <% end %>
       </div>
     </div>
@@ -92,4 +94,7 @@
     </div>
     </div>
   </div>
+</div>
+</div>
+
 </div>
