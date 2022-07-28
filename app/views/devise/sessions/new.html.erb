@@ -1,8 +1,8 @@
-<div class='row p-0'>
+<div class='row p-0' id='cta'>
   <div class='col-7 min-vh-75'>
     <div class="row align-center">
-      <div class='col-8 border px-5 py-3 bg-white m-auto'>
-        <h3 class='py-4 text-center fs-1'>Login to Account</h1>
+      <div class='col-9 border px-5 py-3 light-bg m-auto'>
+        <h3 class='py-5 text-center fs-1 header-txt'>Login to Account</h1>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <div class='py-1'>
@@ -36,9 +36,9 @@
   </div>
   <div class='col-5 min-vh-75 py-4' id='cta'>
     <div class="row">
-      <div class='container text-center m-auto mt-5'>
-        <h2 class='text-white fs-1 py-2'>Don't have an account?</h2>
-        <p class='text-white'>Sign up for a Curb Your Spend account!</p>
+      <div class='col-12 text-center m-auto mt-5'>
+        <h2 class='text-white fs-1 py-2 header-txt'>Don't have an account?</h2>
+        <p class='text-white body-txt'>Sign up for a Curb Your Spend account!</p>
         <div class='d-grid col-6 container'>
           <%= link_to "Sign Up", new_registration_path(resource_name), class: 'btn btn-lg gen-btn my-3' %>
         </div>
