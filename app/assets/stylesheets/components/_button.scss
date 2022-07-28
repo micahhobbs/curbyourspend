@@ -65,3 +65,18 @@
 .wrn-btn:hover {
   box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 60%);
 }
+
+
+.grn-btn {
+  background-color: #abd1c6;
+  color: $btn-txt;
+  opacity: 1;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.grn-btn:hover {
+  box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 60%);
+}
