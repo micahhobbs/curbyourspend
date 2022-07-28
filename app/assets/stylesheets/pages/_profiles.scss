@@ -1,0 +1,32 @@
+body {
+  background-color: $dark-bg;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card {
+  border: none;
+  background-color: $heading;
+}
+
+.card-text {
+  color: $btn-txt;
+}
+
+h1.header-txt, p.body-txt {
+  color: $heading
+}
+
+h1.header-txt {
+  font-size: 50px;
+}
+
+#results {
+  font-size: 30px;
+}
+
+.cards img {
+  filter: grayscale(100%);
+}
