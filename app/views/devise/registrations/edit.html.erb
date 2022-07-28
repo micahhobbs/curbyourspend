@@ -9,12 +9,25 @@
   </div>
 </ul>
 <div class='row p-0' id='cta'>
-  <div class='col-8 min-vh-100 py-5'>
-    <div class="container col-10 px-5 py-3 light-bg">
+    <div class="container col-7 px-5 py-3 light-bg mt-5">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
             <h1 class='py-4 header-txt' style="color: #001e1d;">Update Account Details</h2>
+              <div class="container d-flex flex-row col-8 light-bg align-left m-0 p-0">
+      <% if current_user.avatar.present?  %>
+        <%= cl_image_tag(current_user.avatar.key, class: "avatar-square rounded d-inline-block img-thumbnail img-fluid") %>
+      <% else %>
+        <%= image_tag ('default-avatar.png'), class: "avatar-square rounded d-inline-block img-thumbnail img-fluid" %>
+      <% end %>
+         <ul class='plist-group list-group-flush px-3 '>
+        <li class="list-group-item light-bg"><strong>Items Created:</strong> <%= current_user.items.count %></li>
+        <li class="list-group-item light-bg"><strong>Total Comments:</strong> <%= current_user.comments.count %></li>
+        <li class="list-group-item light-bg"><strong>Account Created:</strong> <%= current_user.created_at.strftime('%d/%m/%Y') %></li>
+        <li class="list-group-item light-bg"><strong>Last Updated:</strong> <%= current_user.updated_at.strftime('%d/%m/%Y') %></li>
+      </ul>
+
+  </div>
             <div class='py-1 pt-3'>
               <h4 class='pt-2 header-txt' style="color: #001e1d;">Personal Details</h4>
               <%= f.input :first_name, required: true, autofocus: true %>
@@ -69,27 +82,11 @@
         <% end %>
       </div>
     </div>
-    <div class='container col-10 px-5 mt-5 py-3 light-bg'>
+    <div class='container col-7 px-5 mt-5 py-3 light-bg'>
       <h4 class='pt-2 header-txt' style="color: #001e1d;">Cancel Account</h3>
       <p>Are you sure you want to cancel your account?</p>
       <div class='d-grid col-6 container'>
-        <%= link_to "Cancel Account", registration_path(resource_name), class: 'btn btn-lg btn-danger text-white my-3', data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <%= link_to "Cancel Account", registration_path(resource_name), class: 'btn btn-lg wrn-btn my-3', data: { confirm: "Are you sure?" }, method: :delete %></p>
       </div>
     </div>
   </div>
-  <div class="col-4 min-vh-100 pt-5" id='cta'>
-    <div class="container d-grid flex-column col-10 align-center justify-content-center light-bg pt-4">
-      <% if current_user.avatar.present?  %>
-        <%= cl_image_tag(current_user.avatar.key, class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid") %>
-      <% else %>
-        <%= image_tag ('default-avatar.png'), class: "avatar-square rounded mx-auto d-block img-thumbnail img-fluid" %>
-      <% end %>
-      <ul class='plist-group list-group-flush py-3 px-2'>
-        <li class="list-group-item"><strong>Items Created:</strong> <%= current_user.items.count %></li>
-        <li class="list-group-item"><strong>Total Comments:</strong> <%= current_user.comments.count %></li>
-        <li class="list-group-item"><strong>Account Created:</strong> <%= current_user.created_at.strftime('%d/%m/%Y') %></li>
-        <li class="list-group-item"><strong>Last Updated:</strong> <%= current_user.updated_at.strftime('%d/%m/%Y') %></li>
-      </ul>
-    </div>
-  </div>
-</div>
