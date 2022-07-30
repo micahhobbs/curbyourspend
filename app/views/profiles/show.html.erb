@@ -1,58 +1,58 @@
-<div style="background-color: #abd1c6 !important; class="container py-5 d-flex flex-column">
-  <%= link_to '← Back', :back, class: "text-decoration-none mb-5", style: "color: black;" %>
-  <%= cl_image_tag(@user.avatar.key, class: "border rounded-circle", style: "max-width:15%;") %>
-  <div class="d-flex py-3 align-items-center">
-    <h1 class="mb-0"><%= @user.first_name + " " + @user.last_name %></h1>
-    <svg viewBox="0 0 24 24" role="presentation" style="width: 40px; height: 40px;"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" style="fill: rgb(0, 181, 183);"></path></svg>
-  </div>
-  <p>Member since <%= @user.created_at.strftime("%B %d, %Y") %></p>
-  <div class="container p-0">
-    <div class="row p-0">
-      <div class="col-8">
-        <h3 class="py-3">Items</h3>
-        <div class="cards">
+<div class="background">
+  <div class="container">
+    <%= link_to '← Profiles', profiles_path, class: "btn gen-btn px-4 py-2 my-5 btn-lg" %>
+    <div class="row p-0 pb-5">
+      <div class="col-sm-4 pr-5">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+          <%= cl_image_tag(@user.avatar.key, class: "border mb-3 grey-img rounded-circle", style: "min-width: 60%; max-width:80%;") %>
+          <div class="d-flex align-items-center justify-content-center">
+            <h1 class="heading header-txt fs-1" style="color: #001e1d;"><%= @user.first_name + " " + @user.last_name %></h1>
+            <svg class="pl-3" viewBox="0 0 24 24" role="presentation" style="width: 40px; height: 40px;"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" style="fill: rgb(0, 181, 183);"></path></svg>
+          </div>
+          <p class="fs-5">Member since <%= @user.created_at.strftime("%B %d, %Y") %></p>
+        </div>
+        <div class="card text-center shadow-sm mt-3" style='background-color: #004643;'>
+          <div class="card-body py-4">
+            <h4 class="card-title mb-4 fw-bold fs-2" style='color: #fffffe;'>Total saved 💰</h4>
+            <p class="card-text body-txt fs-4" style='color: #abd1c6;'><%= number_to_currency(@total_value_saved) %></p>
+          </div>
+        </div>
+        <div class="card text-center shadow-sm mt-4" style='background-color: #004643;'>
+          <div class="card-body py-4">
+            <h4 class="card-title mb-4 fw-bold fs-2" style='color: #fffffe;'>Hasn't bought 🚫</h4>
+            <p class="card-text body-txt fs-4" style='color: #abd1c6;'><%= pluralize(@total_items_adandoned_count, 'item', plural: 'items') %></p>
+          </div>
+        </div>
+        <div class="card text-center shadow-sm mt-3" style='background-color: #004643;'>
+          <div class="card-body py-4">
+            <h4 class="card-title mb-4 fw-bold fs-2" style='color: #fffffe;'>Total items 📚</h4>
+            <p class="card-text body-txt fs-4" style='color: #abd1c6;'><%= pluralize(@user.items.count, 'item', plural: 'items') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8" style="padding-left: 100px;">
+        <h4 class="header-txt pb-2"><%= @user.first_name %>'s items</h3>
+        <div class="cards d-flex flex-column">
           <% @user.items.each do |item| %>
-            <%#= link_to item_path(item) do %>
-              <div class="card card-hover" style="max-height: 400px">
-                <%= cl_image_tag item.photo.key, class: "h-50", style: "object-fit: cover;" if item.photo.key.present? %>
-                <div class="card-body d-flex flex-column justify-content-between">
-                  <h5 class="card-title"><%= item.name %></h5>
-                  <p class="card-text"><%= number_to_currency(item.value) %></p>
-                  <p class="card-text"><%= item.status %></p>
-                    <%= link_to "See item", item_path(item), class: "btn btn-success" %>
+            <%= link_to item_path(item) do %>
+              <div class="card card-hover" style='background-color: #004643;'>
+                <div class="d-flex">
+                  <%= cl_image_tag item.photo.key, class: "", style: "object-fit: cover; max-width: 150px; min-height: 150px;" if item.photo.key.present? %>
+                  <div class="p-4">
+                    <h4 class="fw-bold" style="color: #fffffe;"><%= item.name %></h5>
+                    <p class="fw-bold" style="color: #fffffe;"><%= number_to_currency(item.value) %></p>
+                    <div class="d-flex">
+                      <p class="fw-bold p-2 bg-light text-dark" style="margin-right: 16px;"><%= item.status %></p>
+                      <p class="fw-bold p-2 ml-5 bg-light text-dark"><%= item.reason %></p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            <%# end %>
+            <% end %>
           <% end %>
         </div>
       </div>
-      <div class="col-4">
-        <h3 class="py-3">Statistics</h3>
-        <div class="card mb-4">
-          <div class="card-body text-center">
-            <h5 class="card-title">💰 Total value saved</h5>
-            <p class="card-text fs-3"><%= number_to_currency(@total_value_saved) %></p>
-          </div>
-        </div>
-        <div class="card mb-4">
-          <div class="card-body text-center">
-            <h5 class="card-title">🚫 Total items not bought</h5>
-            <p class="card-text fs-3"><%= @total_items_adandoned_count %></p>
-          </div>
-        </div>
-        <div class="card mb-4">
-          <div class="card-body text-center">
-            <h5 class="card-title">🧮 Total items</h5>
-            <p class="card-text fs-3"><%= @user.items.count %></p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-  <div class="container py-5 px-0">
-    <div class='bg-white py-5 px-5 d-flex flex-row'>
-      <%= pie_chart current_user.items.group(:status).count, empty: "No data" %>
-      <%= bar_chart current_user.items.group_by_day(:created_at).count, xtitle: "Number of items created by day", empty: "No data" %>
-    </div>
 </div>
 </div>
