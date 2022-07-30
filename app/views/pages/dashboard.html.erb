@@ -1,4 +1,4 @@
-<ul class="nav navbar bg-white border-top border-bottom py-3 px-5">
+<ul class="nav navbar border-top py-3 px-5" id='cta'>
   <div class="container d-flex justify-content-end">
     <li class="nav-item px-2">
       <%= link_to 'Add Item', new_item_path, class: 'btn sec-nav-btn' %>
@@ -9,82 +9,90 @@
 
   </div>
 </ul>
-<%# Page not styled. %>
+
 <div class="row py-5">
-  <div class='container col-11 bg-white px-4'>
+  <div class='container col-11 light-bg px-4'>
     <div class='pt-5 px-5'>
-      <h1 class='fs-1'>Hey <%= current_user.first_name || current_user.username || current_user.email %>!</h1>
+      <h1 class='drk-header-txt'>Hey <%= current_user.first_name || current_user.username || current_user.email %>,</h1>
+      <h2 class='py-2 drk-header-txt'>Here's a summary of all your items...</h2>
     </div>
     <div class="row py-5 px-5">
-      <h2 class='py-2'>Summary</h2>
       <div class="col-4">
         <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Total Items</h5>
+          <div class="card-body light-bg">
+            <h5 class="card-title drk-header-txt">Total Items</h5>
             <p class="card-text"><%= current_user.items.count %></p>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Total Value of Items</h5>
+          <div class="card-body light-bg">
+            <h5 class="card-title drk-header-txt" >Total Value of Items</h5>
             <p class="card-text"><%= number_to_currency(current_user.items.sum(:value)) %></p>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Money Saved</h5>
+          <div class="card-body light-bg">
+            <h5 class="card-title drk-header-txt">Money Saved</h5>
             <p class="card-text"><%= number_to_currency(current_user.items.where(status: "Abandoned").sum(:value)) %></p>
           </div>
         </div>
       </div>
     </div>
-    <div class='py-4 px-5'>
-    <h2>Your Items (Active)</h2>
-      <table class='table table-bordered table-hover all-items'>
-        <thead>
+      <div class='col-12 px-5 py-4 dash-calendar my-5'>
+        <h3 class='header-txt text-center pb-3'>Upcoming Items</h2>
+        <%= render partial: "dashcalendar", locals: {events: current_user.items} %>
+      </div>
+    <div class='col-12 my-5 py-4 px-5'>
+    <h3 class='header-txt text-center pb-3'>Your Latest Items</h2>
+    <table class='table table-bordered table-striped table-hover all-items bg-white'>
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Value</th>
+        <th scope="col">Reason</th>
+        <th class='date-col' scope="col">Days left</th>
+        <th class='date-col' scope="col">Status</th>
+        <th scope="col">Actions</th>
+     </tr>
+    </thead>
+    <tbody>
+      <%  current_user.items.last(5).each do |item| %>
+        <% if item.user_id == current_user.id %>
           <tr>
-            <th scope="col">Item</th>
-            <th scope="col">Value</th>
-            <th scope="col">Reason</th>
-            <th scope="col">Days Left</th>
-            <th scope="col">Recommendation</th>
-            <th scope="col">Status</th>
+            <td onclick="location.href='<%= item_path(item.id) %>'"><%= item.name %></td>
+            <td onclick="location.href='<%= item_path(item.id) %>'"><%= number_to_currency(item.value) %></td>
+            <td onclick="location.href='<%= item_path(item.id) %>'"><%= item.reason %></td>
+            <td onclick="location.href='<%= item_path(item.id) %>'" class='date-col'>
+            <%=
+              if (item.end_date - Date.today) > 0
+                (item.end_date - Date.today).to_s.split("/")[0]
+              else
+                "Complete"
+              end
+              %>
+            </td>
+            <td onclick="location.href='<%= item_path(item.id) %>'" class='date-col'><%= item.status %></td>
+            <td>
+              <div class='d-flex'>
+                <%= link_to 'Edit', edit_item_path(item), class: 'btn othr-btn mx-2' %><%= link_to 'Delete', item_path(item), class: 'btn wrn-btn', method: :delete, data: { confirm: 'Are you sure you want to delete this item?' } %>
+              </div>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <%  current_user.items.each do |item| %>
-            <% if item.user_id == current_user.id && item.status == 'Cooling off' %>
-              <tr onclick="location.href='<%= item_path(item.id) %>'">
-                <td><%= item.name %></td>
-                <td><%= number_to_currency(item.value) %></td>
-                <td><%= item.reason %></td>
-                <td><% if (item.end_date - Date.today).to_i < 0%>
-                  <%= 'Complete' %>
-                <% else %>
-                  <%= (item.end_date - Date.today).to_i %>
-                <% end %></td>
-                <td>Recommendation Data</td>
-                <td><%= item.status %></td>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
     </div>
-    <div class='col-12 px-5 py-4 dash-calendar'>
-      <%= render partial: "dashcalendar", locals: {events: current_user.items} %>
-    </div>
-<%# Need to investigate options for graphs further. Simple placeholders below. %>
-    <div class='col-12 px-5 py-4'>
-    <%# Shows different values of users items %>
+    <div class='col-12 px-5 py-4 my-5'>
+      <h3 class='header-txt text-center pb-3'>Items By Value</h2>
       <%= bar_chart current_user.items.group(:name).sum(:value) %>
     </div>
-    <div class='col-12 px-5 py-4'>
-    <%# Shows the grouping of the users items status' %>
+    <div class='col-12 px-5 py-4 my-5'>
+      <h3 class='header-txt text-center pb-3'>Items By Status</h2>
       <%= pie_chart current_user.items.group(:status).count %>
     </div>
   </div>
