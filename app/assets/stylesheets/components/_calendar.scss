@@ -3,25 +3,31 @@
     min-height: 80vh;
   }
   .today {
-    background-color: #FAF3DD;
+    background-color: #f9bc60;
+  }
+  th {
+    background-color: #004643;
+    color: #fffe;
   }
 }
 
 .item {
-  color: white;
+  color: #001e1d;
   padding: 0px 24px;
   border-radius: 4px;
-  background: #1EDD88;
-  transition: background 0.3s ease;
+  background-color: #e16162;
+  transition: background-color 0.5s ease-in-out;
+  font-family: $body-font;
+  font-weight: 700;
 }
 
 .item:hover {
-  background: #1BCB7F;
-  color: white;
+  background-color: #bf4444;
+  box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 60%);
 }
 
 .dash-calendar {
   table {
-    min-height: 60vh;
+    min-height: 40vh;
   }
 }
