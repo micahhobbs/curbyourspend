@@ -15,8 +15,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    @notification = Notification.find(params[:id])
     @comment.destroy
-
+    @notification.destroy
     redirect_to item_path(@comment.item_id)
   end
 

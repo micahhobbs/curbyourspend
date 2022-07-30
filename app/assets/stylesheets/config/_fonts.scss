@@ -27,6 +27,12 @@ $headers-font: "Montserrat", "sans-serif";
   font-weight: 700;
 }
 
+.drk-body-txt {
+  font-family: $body-font;
+  font-weight: 400;
+  color: #abd1c6;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
