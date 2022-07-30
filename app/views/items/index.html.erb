@@ -22,7 +22,7 @@
                 <% if item.photo.key %>
                   <%= cl_image_tag item.photo.key, height: 250, width: 350, crop: :fill %>
                 <% else %>
-                  <%= image_tag('no-img.png', height: 200, width: 300) %>
+                  <%= image_tag('no-img.png', height: 250, width: 350) %>
                 <% end  %>
               </div>
               <div class="card-header lght-header-txt text-center fs-3" id='cta'>

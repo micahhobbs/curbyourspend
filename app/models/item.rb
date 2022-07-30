@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_one_attached :photo
+  has_noticed_notifications
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :reason, inclusion: { in: ['Fun', 'Fitness', 'Productivity', 'Technology', 'Other'] }

@@ -1,4 +1,25 @@
 .show-icon {
-  font-size: 130px;
-  color: darkgrey;
+  font-size: 100px;
+}
+
+.icon {
+  // background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  background: #f9bc60;
+  color: #001e1d;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.lrg-icon {
+  background: #f9bc60;
+  border-radius: 50%;
+  width: 230px;
+  height: 230px;
+  margin: 0 auto;
+}
+
+i {
+  padding-top: 28px;
 }
