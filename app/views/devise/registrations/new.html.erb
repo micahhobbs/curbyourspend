@@ -2,7 +2,7 @@
   <div class='col-7 min-vh-75'>
     <div class="row align-center py-5">
       <div class='col-10 border px-5 py-3 m-auto light-bg'>
-        <h3 class='py-4 text-center fs-1 header-txt'>Create Account</h1>
+        <h3 class='py-4 text-center fs-1 header-txt' style="color: #001e1d;">Create Account</h1>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
@@ -75,8 +75,8 @@
   <div class='col-5 min-vh-75 py-4' id='cta'>
     <div class="row">
       <div class='col-12 text-center m-auto mt-5'>
-        <h2 class='text-white fs-1 py-2 header-txt'>Already have an account?</h2>
-        <p class='text-white body-txt'>Sign in to your Curb Your Spend account.</p>
+        <h2 class='text-white fs-1 py-2 header-txt' style='color: #fffffe;'>Already have an account?</h2>
+        <p class='body-txt' style='color: #abd1c6;'>Sign in to your Curb Your Spend account.</p>
         <div class='d-grid col-6 container'>
           <%= link_to "Sign In", new_session_path(resource_name), class: 'btn btn-lg gen-btn my-3' %>
         </div>

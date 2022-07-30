@@ -15,6 +15,18 @@ $headers-font: "Montserrat", "sans-serif";
   font-weight: 700;
 }
 
+.drk-header-txt {
+  color: #001e1d;
+  font-family: $body-font;
+  font-weight: 700;
+}
+
+.lght-header-txt {
+  color: #fffe;
+  font-family: $body-font;
+  font-weight: 700;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";

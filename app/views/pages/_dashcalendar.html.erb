@@ -1,12 +1,10 @@
-  <%= week_calendar events: current_user.items, end_attribute: :end_date, attribute: :start_date do |date, items| %>
+  <%= week_calendar events: current_user.items do |date, items| %>
     <%= date %>
     <% items.each do |item| %>
         <% if item.status == 'Cooling off' %>
-          <div class="item">
             <%= link_to item, class: "text-decoration-none text-white" do %>
-              <p><%= item.name.slice(0,15)... %></p>
+              <p class='item'><%= item.name.slice(0,15)... %></p>
             <% end %>
         <% end %>
-      </div>
     <% end %>
   <% end %>

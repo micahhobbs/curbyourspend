@@ -4,7 +4,7 @@
   <div class="cards my-5">
     <% @users.each do |user| %>
       <%= link_to profile_path(user) do %>
-        <div class="card text-center">
+        <div class="card card-hover text-center">
           <div class="shadow-sm">
               <div class="card-body card-text">
                 <% if user.avatar.present?  %>
