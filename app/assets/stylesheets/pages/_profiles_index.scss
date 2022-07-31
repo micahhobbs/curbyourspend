@@ -30,3 +30,11 @@ h1.header-txt {
 .cards img {
   filter: grayscale(100%);
 }
+
+#overlay > img {
+  filter: grayscale(50%);
+}
+
+#show-overlay > img {
+  filter: grayscale(30%);
+}

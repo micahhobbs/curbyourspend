@@ -11,14 +11,14 @@
   <%= f.input :description, label: false,  placeholder: "Item description" %>
   <p class="pt-3">Link:</p>
   <%= f.input :link, label: false,  placeholder: "Link to item" %>
-  <div class='pb-4'>
+  <div class='pb-4 w-50'>
       <p class="pt-3">I want to start tracking this item from:</p>
-    <%= f.date_field :start_date, class: 'mb-2' %>
+    <%= f.date_field :start_date, class: 'mb-2 px-3' %>
     <p class="pt-3">I want to stop tracking this item on :</p>
-    <%= f.date_field :end_date, class: 'mb-2' %>
+    <%= f.date_field :end_date, class: 'mb-2 px-3' %>
   </div>
   <p class="text-center fst-italic">We recommended given items at least 10 days to cool off.</p>
-  <div class="d-flex justify-content-center">
-      <%= f.submit class: "btn btn-lg othr-btn" %>
+  <div class="d-flex justify-content-center py-3">
+      <%= f.submit class: "btn btn-lg othr-btn px-3 w-50" %>
   </div>
 <% end %>
