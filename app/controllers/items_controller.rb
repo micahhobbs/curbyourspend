@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
 
-    redirect_to dashboard_path
+    redirect_to items_path
   end
 
   def buy

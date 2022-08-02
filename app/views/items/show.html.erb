@@ -72,7 +72,7 @@
   <div class='col-5 py-4 px-5' >
     <div class='text-center d-flex flex-column align-items-center' >
       <h2 class='lght-header-txt pt-3 pb-4'>Let <%= @item.user.first_name %> know what you think of this item</h2>
-      <div class='w-75'>
+      <div class='w-75' id="comments">
         <%= render 'shared/comment' %>
       </div>
     </div>
@@ -106,7 +106,7 @@
                   comment_path(comment),
                   method: :delete,
                   data: { confirm: 'Delete this comment?' },
-                  class: 'btn wrn-btn'  %>
+                  class: 'btn wrn-btn', remote: true %>
             <% end %>
             </div>
           </div>
