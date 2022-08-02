@@ -12,6 +12,7 @@ puts "Cleaning data..."
 Comment.destroy_all
 Item.destroy_all
 User.destroy_all
+Notification.destroy_all
 puts "Finished cleaning data."
 puts "Creating data..."
 

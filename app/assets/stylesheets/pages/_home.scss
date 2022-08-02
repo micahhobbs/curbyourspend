@@ -26,26 +26,11 @@
   font-size: 50px;
 }
 
-.icon {
-  // background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-  background: #f9bc60;
-  color: #001e1d;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  margin: 0 auto;
-}
-
-i {
-  padding-top: 28px;
-}
-
 .header-gradient {
   // background: linear-gradient(90deg, rgb(44, 198, 192) 0%, rgb(173, 214, 169) 100%)
   background-color: $light-bg;
   color: #001e1d;
 }
-
 
 .light-bg {
   background-color: $light-bg;
