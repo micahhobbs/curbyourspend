@@ -20,103 +20,102 @@
       </li>
     </div>
   </ul>
-<div class='container light-bg'>
-  <div class='container pt-4 pb-5'>
-    <div class='row p-0 regular-shadow'>
-      <div class='col-6 d-flex flex-column justify-content-center align-items-center' style='background: #fffe'>
-        <div class='border border border-1' id='show-overlay'>
-          <% if @item.photo.key %>
-            <%= cl_image_tag @item.photo.key, height: 500, width: 600, crop: :fill %>
-          <% else %>
-            <%= image_tag('no-img.png', height: 500, width: 600) %>
-          <% end  %>
-        </div>
-      </div>
-      <div class='col-6 d-flex flex-column py-4 justify-content-center align-items-center' id='cta'>
-        <h1 class='mx-3 pb-1 pt-3 heading lght-header-txt'><%= @item.name %></h1>
-        <div class='py-3 d-flex flex-column text-center lrg-icon'>
-          <% case @item.reason %>
-          <% when "Fun"  %>
-            <i class="fa-light far fa-face-laugh-beam show-icon drk-header-txt"></i>
-          <% when "Fitness" %>
-            <i class="fa-light fas fa-dumbbell show-icon drk-header-txt"></i>
-          <% when "Productivity" %>
-            <i class="fa-light fas fa-rocket show-icon drk-header-txt"></i>
-          <% when "Technology" %>
-            <i class="fa-light fas fa-computer show-icon drk-header-txt"></i>
-          <% else %>
-            <i class="fa-light far fa-circle-question show-icon drk-header-txt"></i>
-          <% end %>
-          <p class='pt-3 fs-4 drk-header-txt'><strong><%= @item.reason %></strong></p>
-        </div>
-        <div class='py-3 px-5 fs-5'>
-          <p class='drk-body-txt'><strong >Cost:</strong> <%= number_to_currency(@item.value) %></p>
-          <p class='drk-body-txt'><strong>Status:</strong> <%= @item.status %></p>
-          <p class='drk-body-txt'><strong>Description:</strong> <%= @item.description %></p>
-          <div class='pb-3 text-center'>
-            <strong><%= link_to 'Link to item', @item.link, target: "_blank" %></strong>
-          </div>
-        </div>
-        <div class='d-grid col-8'>
-          <% if current_user == @item.user %>
-            <%= link_to 'Abandon', item_abandon_path(@item), method: :post, class: 'btn btn-lg grn-btn my-1' %>
-            <%= link_to 'Buy',  item_buy_path(@item), method: :post, class: 'btn btn-lg wrn-btn my-1' %>
-            <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg othr-btn my-1' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class='row mt-5 pt-3 pb-3' id='cta'>
-  <div class='col-5 py-4 px-5' >
-    <div class='text-center d-flex flex-column align-items-center' >
-      <h2 class='lght-header-txt pt-3 pb-4'>Let <%= @item.user.first_name %> know what you think of this item</h2>
-      <div class='w-75' id="comments">
-        <%= render 'shared/comment' %>
-      </div>
-    </div>
-  </div>
-  <div class='col-7 px-5 pt-4 d-flex flex-column' style='border-left: 1px solid #fffe;'>
-    <h3 class='lght-header-txt pt-3 pb-3'>Comments:</h3>
-    <div>
-      <% if @item.comments.present? %>
-        <% @item.comments.each do |comment| %>
-        <div class="card mb-3">
-          <div class="card-header text-center fs-3">
-          <div class='d-flex flex-row'>
-                      <% if comment.user.avatar.present?  %>
-            <%= cl_image_tag(comment.user.avatar.key, style: "border: 1px solid lightgrey; max-width: 50px;", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-          <% else %>
-            <%= image_tag ('default-avatar.png'), class: "card-img-top", style: "border: 1px solid lightgrey; max-width: 50px;", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-            <% if comment.user.username.present? %>
-              <p class="mb-1 px-3"><strong><%= comment.user.username %></strong> commented:</p>
+  <div class='container light-bg'>
+    <div class='container pt-4 pb-5'>
+      <div class='row p-0 regular-shadow'>
+        <div class='col-6 d-flex flex-column justify-content-center align-items-center' style='background: #fffe'>
+          <div class='border border border-1' id='show-overlay'>
+            <% if @item.photo.key %>
+              <%= cl_image_tag @item.photo.key, height: 500, width: 600, crop: :fill %>
             <% else %>
-              <p class="mb-1"><strong></strong> <%= comment.user.email %> commented:</p>
-            <% end %>
-
+              <%= image_tag('no-img.png', height: 500, width: 600) %>
+            <% end  %>
           </div>
-          </div>
-          <div class="card-body">
-            <p class="card-text"><%= comment.comment %></p>
-            <div class='d-flex justify-content-end'>
-            <% if current_user == @item.user || current_user == @comment.user %>
-              <%= link_to 'Delete',
-                  comment_path(comment),
-                  method: :delete,
-                  data: { confirm: 'Delete this comment?' },
-                  class: 'btn wrn-btn', remote: true %>
+        </div>
+        <div class='col-6 d-flex flex-column py-4 justify-content-center align-items-center' id='cta'>
+          <h1 class='mx-3 pb-1 pt-3 heading lght-header-txt'><%= @item.name %></h1>
+          <div class='py-3 d-flex flex-column text-center lrg-icon'>
+            <% case @item.reason %>
+            <% when "Fun"  %>
+              <i class="fa-light far fa-face-laugh-beam show-icon drk-header-txt"></i>
+            <% when "Fitness" %>
+              <i class="fa-light fas fa-dumbbell show-icon drk-header-txt"></i>
+            <% when "Productivity" %>
+              <i class="fa-light fas fa-rocket show-icon drk-header-txt"></i>
+            <% when "Technology" %>
+              <i class="fa-light fas fa-computer show-icon drk-header-txt"></i>
+            <% else %>
+              <i class="fa-light far fa-circle-question show-icon drk-header-txt"></i>
             <% end %>
+            <p class='pt-3 fs-4 drk-header-txt'><strong><%= @item.reason %></strong></p>
+          </div>
+          <div class='py-3 px-5 fs-5'>
+            <p class='drk-body-txt'><strong >Cost:</strong> <%= number_to_currency(@item.value) %></p>
+            <p class='drk-body-txt'><strong>Status:</strong> <%= @item.status %></p>
+            <p class='drk-body-txt'><strong>Description:</strong> <%= @item.description %></p>
+            <div class='pb-3 text-center'>
+              <strong><%= link_to 'Link to item', @item.link, target: "_blank" %></strong>
             </div>
           </div>
+          <div class='d-grid col-8'>
+            <% if current_user == @item.user %>
+              <%= link_to 'Abandon', item_abandon_path(@item), method: :post, class: 'btn btn-lg grn-btn my-1' %>
+              <%= link_to 'Buy',  item_buy_path(@item), method: :post, class: 'btn btn-lg wrn-btn my-1' %>
+              <%= link_to 'Extend', edit_item_path, class: 'btn btn-lg othr-btn my-1' %>
+            <% end %>
           </div>
-                <% end %>
-    <% else %>
-      <p class='pt-2'>There are no comments for this item.</p>
-    <% end %>
         </div>
-
+      </div>
+    </div>
+  </div>
+  <div class='row mt-5 pt-3 pb-3' id='cta'>
+    <div class='col-5 py-4 px-5' >
+      <div class='text-center d-flex flex-column align-items-center' >
+        <h2 class='lght-header-txt pt-3 pb-4'>Let <%= @item.user.first_name %> know what you think of this item</h2>
+        <div class='w-75'>
+          <%= render 'shared/comment' %>
+        </div>
+      </div>
+    </div>
+    <div class='col-7 px-5 pt-4 d-flex flex-column' style='border-left: 1px solid #fffe;'>
+      <h3 class='lght-header-txt pt-3 pb-3'>Comments:</h3>
+      <div>
+        <% if @item.comments.present? %>
+          <% @item.comments.each do |comment| %>
+            <div class="card mb-3">
+              <div class="card-header text-center fs-3">
+                <div class='d-flex flex-row'>
+                  <% if comment.user.avatar.present?  %>
+                    <%= cl_image_tag(comment.user.avatar.key, style: "border: 1px solid lightgrey; max-width: 50px;", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+                  <% else %>
+                    <%= image_tag ('default-avatar.png'), class: "card-img-top", style: "border: 1px solid lightgrey; max-width: 50px;", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% end %>
+                  <% if comment.user.username.present? %>
+                    <p class="mb-1 px-3"><strong><%= comment.user.username %></strong> commented:</p>
+                  <% else %>
+                    <p class="mb-1"><strong></strong> <%= comment.user.email %> commented:</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-text"><%= comment.comment %></p>
+                <div class='d-flex justify-content-end'>
+                  <% if current_user == @item.user || current_user == comment.user %>
+                    <%= link_to 'Delete',
+                    comment_path(comment),
+                    method: :delete,
+                    data: { confirm: 'Delete this comment?' },
+                    class: 'btn wrn-btn', remote: true  %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p class='pt-2 body-txt'>There are no comments for this item.</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
