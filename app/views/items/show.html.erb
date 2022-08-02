@@ -105,7 +105,7 @@
                     comment_path(comment),
                     method: :delete,
                     data: { confirm: 'Delete this comment?' },
-                    class: 'btn wrn-btn'  %>
+                    class: 'btn wrn-btn', remote: true  %>
                   <% end %>
                 </div>
               </div>
@@ -118,3 +118,4 @@
     </div>
   </div>
 </div>
+

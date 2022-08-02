@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.item = Item.find(params[:item_id])
     @comment.save
     CommentNotification.with(comment: @comment, message: "#{@comment.user.first_name} commented on #{@comment.item.name}").deliver(@comment.item.user)
-    redirect_to item_path(@comment.item_id)
+    redirect_to item_path(@comment.item_id,  anchor: "comments")
   end
 
   def destroy
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @notification = Notification.find(params[:id])
     @comment.destroy
     @notification.destroy
-    redirect_to item_path(@comment.item_id)
+    redirect_to item_path(@comment.item_id, anchor: "comments")
   end
 
   private
