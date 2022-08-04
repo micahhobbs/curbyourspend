@@ -2,7 +2,7 @@
   <div class='col-7 min-vh-75'>
     <div class="row align-center">
       <div class='col-9 border px-5 py-3 light-bg m-auto'>
-        <h3 class='py-4 mb-4 text-center fs-1 header-txt' style="color: #001e1d;">Login and Start Saving</h1>
+        <h3 class='py-4 mb-4 text-center fs-1 header-txt' style="color: #001e1d;">Login and start saving</h1>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <div class='py-1'>
@@ -29,7 +29,7 @@
           </div>
         <% end %>
         <div class='py-2 pb-3 pb-4 text-center'>
-          <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'body-txt' %><br />
+          <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'btn w-100 gen-btn text-white', style: "background-color: #004643;" %><br />
         </div>
       </div>
     </div>
