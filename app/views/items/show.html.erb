@@ -1,29 +1,29 @@
 <div class='light-bg'>
   <ul class="nav navbar dark-bg border-top py-3 px-5">
     <div class="container d-flex justify-content-end">
-      <li class="nav-item px-1">
+      <li class="nav-item px-2">
         <%= link_to 'Back', :back, class: 'btn sec-nav-btn' %>
+      </li>
+      <li class="nav-item px-2">
+        <%= link_to 'My Items', items_path, class: 'btn sec-nav-btn' %>
+      </li>
+      <li class="nav-item px-2 d-none d-lg-block">
+        <%= link_to 'Dashboard', dashboard_path, class: 'btn sec-nav-btn' %>
       </li>
       <% if current_user == @item.user %>
         <li class="nav-item px-2">
           <%= link_to 'Edit Item', edit_item_path, class: 'btn sec-nav-btn' %>
         </li>
-        <li class="nav-item px-2">
+        <li class="nav-item px-2 d-none d-lg-block">
           <%= link_to 'Delete Item', item_path(@item), class: 'btn sec-nav-btn', method: :delete, data: { confirm: 'Are you sure you want to delete this item?' } %>
         </li>
       <% end %>
-      <li class="nav-item px-2">
-        <%= link_to 'My Items', items_path, class: 'btn sec-nav-btn' %>
-      </li>
-      <li class="nav-item px-2">
-        <%= link_to 'Dashboard', dashboard_path, class: 'btn sec-nav-btn' %>
-      </li>
     </div>
   </ul>
   <div class='container light-bg'>
     <div class='container pt-4 pb-5'>
       <div class='row p-0 regular-shadow'>
-        <div class='col-6 d-flex flex-column justify-content-center align-items-center' style='background: #fffe'>
+        <div class='col-6 d-none d-lg-flex flex-column justify-content-center align-items-center' style='background: #fffe'>
           <div class='border border border-1' id='show-overlay'>
             <% if @item.photo.key %>
               <%= cl_image_tag @item.photo.key, height: 500, width: 600, crop: :fill %>
@@ -32,7 +32,7 @@
             <% end  %>
           </div>
         </div>
-        <div class='col-6 d-flex flex-column py-4 justify-content-center align-items-center' id='cta'>
+        <div class='col-12 col-lg-6 d-flex flex-column py-4 justify-content-center align-items-center' id='cta'>
           <h1 class='mx-3 pb-1 pt-3 heading lght-header-txt'><%= @item.name %></h1>
           <div class='py-3 d-flex flex-column text-center lrg-icon'>
             <% case @item.reason %>
@@ -69,7 +69,7 @@
     </div>
   </div>
   <div class='row mt-5 pt-3 pb-3' id='cta'>
-    <div class='col-5 py-4 px-5' >
+    <div class='col-12 col-lg-5 py-4 px-5' >
       <div class='text-center d-flex flex-column align-items-center' >
         <h2 class='lght-header-txt pt-3 pb-4'>Let <%= @item.user.first_name %> know what you think of this item</h2>
         <div class='w-75' id="comments">
@@ -77,7 +77,7 @@
         </div>
       </div>
     </div>
-    <div class='col-7 px-5 pt-4 d-flex flex-column' style='border-left: 1px solid #fffe;'>
+    <div class='col-12 col-lg-7 px-5 pt-4 d-flex flex-column' style='border-left: 1px solid #fffe;'>
       <h3 class='lght-header-txt pt-3 pb-3'>Comments:</h3>
       <div>
         <% if @item.comments.present? %>

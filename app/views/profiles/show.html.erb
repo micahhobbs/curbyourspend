@@ -1,6 +1,6 @@
 <ul class="nav navbar border-top py-3 px-5 light-bg">
   <div class="container d-flex justify-content-end">
-    <li class="nav-item px-1">
+    <li class="nav-item px-2">
       <%= link_to 'Back', :back, class: 'btn sec-nav-btn' %>
     </li>
     <li class="nav-item px-2">
@@ -14,7 +14,7 @@
 <div class="background">
   <div class="container">
     <div class="row p-0 pb-5">
-      <div class="col-sm-4 pr-5">
+      <div class="col-12 col-md-4 pr-5">
         <div class="d-flex flex-column align-items-center justify-content-center">
           <%= cl_image_tag(@user.avatar.key, class: "border mb-3 grey-img rounded-circle", style: "min-width: 60%; max-width:80%;") %>
           <div class="d-flex align-items-center justify-content-center">
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-8" style="padding-left: 100px;">
+      <div class="d-none d-md-block col-md-8" style="padding-left: 100px;">
         <h4 class="header-txt pb-2"><%= @user.first_name %>'s items</h3>
         <div class="cards d-flex flex-column">
           <% @user.items.each do |item| %>
