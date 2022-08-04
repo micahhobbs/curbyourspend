@@ -1,6 +1,12 @@
 class ProfilesController < ApplicationController
   def index
+    @search = params[:search]
     @users = User.where(profile_visible: "true")
+    if @search.present?
+      @name = @search["name"]
+      sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
+      @users = User.where(sql_query, query: "%#{@name}%")
+    end
   end
 
   def show
