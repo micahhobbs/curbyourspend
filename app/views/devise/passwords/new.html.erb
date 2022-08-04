@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row py-5'>
-    <div class='col-6 container align-self-center border py-3 px-5 bg-white'>
-      <h3 class='py-4 text-center fs-1'>Reset Password</h1>
+    <div class='col-6 container align-self-center border py-5 px-5 light-bg'>
+      <h3 class='pb-4 header-txt text-center fs-1'>Reset Password</h1>
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
@@ -16,12 +16,9 @@
           </div>
         </div>
         <div class="form-actions d-grid">
-          <%= f.button :submit, "Reset password", class: 'btn rounded-pill btn-lg gen-btn my-3' %>
+          <%= f.button :submit, "Reset password", class: 'btn btn-lg gen-btn my-2' %>
         </div>
       <% end %>
-      <div class='py-1 text-center'>
-        <%= render "devise/shared/links" %>
-      </div>
     </div>
   </div>
 </div>
