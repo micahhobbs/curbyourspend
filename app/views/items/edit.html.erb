@@ -1,21 +1,21 @@
 <ul class="nav navbar border-top py-3 justify-content-end px-5" id='cta'>
   <div class="container d-flex justify-content-end">
-    <li class="nav-item px-1">
+    <li class="nav-item px-2">
       <%= link_to 'Back', :back, class: 'btn sec-nav-btn' %>
     </li>
     <li class="nav-item px-2">
-      <%= link_to 'Dashboard', dashboard_path, class: 'btn sec-nav-btn' %>
-    </li>
-    <li class="nav-item px-1">
       <%= link_to 'My Items', items_path, class: 'btn sec-nav-btn' %>
     </li>
-    <li class="nav-item px-1">
+    <li class="nav-item px-2">
       <%= link_to 'Delete Item', item_path(@item), class: 'btn sec-nav-btn', method: :delete, data: { confirm: 'Are you sure you want to delete this item?' } %>
+    </li>
+    <li class="nav-item px-2">
+      <%= link_to 'Dashboard', dashboard_path, class: 'd-none d-lg-block btn sec-nav-btn' %>
     </li>
   </div>
 </ul>
 <div class="row py-5" id='cta'>
-  <div class="col-6 container mt-3 py-3 border light-bg">
+  <div class="col-11 col-md-10 col-lg-8 col-xl-6 container mt-3 py-3 border light-bg">
     <div class='container text-left my-4'>
       <h1 class='d-inline header-txt' style="color: #001e1d;">Edit item</h1>
     </div>

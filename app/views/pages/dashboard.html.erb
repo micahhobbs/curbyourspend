@@ -1,7 +1,7 @@
 <ul class="nav navbar border-top py-3 px-5 light-bg">
   <div class="container d-flex justify-content-end">
-    <li class="nav-item px-1">
-      <%= link_to 'Back', :back, class: 'btn sec-nav-btn' %>
+    <li class="nav-item px-2">
+      <%= link_to 'Back', :back, class: ' btn sec-nav-btn' %>
     </li>
     <li class="nav-item px-2">
       <%= link_to 'Add Item', new_item_path, class: 'btn sec-nav-btn' %>
@@ -11,7 +11,7 @@
     </li>
   </div>
 </ul>
-<div class="row pb-5 pt-2 light-bg">
+<div class="row px-0 pb-5 pt-2 light-bg">
   <div class='container col-11 light-bg px-4'>
     <div class='pt-5 px-5'>
       <h1 class='drk-header-txt'>Hey <%= current_user.first_name || current_user.username || current_user.email %>,</h1>
@@ -19,7 +19,7 @@
     </div>
     <div class='container'>
       <div class="row py-5">
-        <div class="col-4">
+        <div class="col-12 col-sm-4">
           <div class="card mx-2 text-center" style="border-radius: 3px;" id='cta'>
           <div class='icon my-3'>
             <i class="fa-solid fa-sack-dollar fs-1"></i>
@@ -32,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-sm-4">
           <div class="card mx-2 text-center" style="border-radius: 3px;" id='cta'>
           <div class='icon my-3'>
             <i class="fa-solid fa-cart-shopping fs-1"></i>
@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-sm-4">
           <div class="card mx-2 text-center" style="border-radius: 3px;" id='cta'>
             <div class='icon my-3'>
               <i class="fa-solid fa-money-bill-trend-up fs-1"></i>
@@ -60,11 +60,11 @@
         </div>
       </div>
     </div>
-    <div class='col-12 px-5 py-4 dash-calendar my-5'>
+    <div class='col-12 d-none d-lg-block px-5 py-4 dash-calendar my-5'>
       <h2 class='header-txt text-center pb-3'>Items cooling off this week</h2>
       <%= render partial: "dashcalendar", locals: {events: current_user.items} %>
     </div>
-    <div class='col-12 my-5 py-4 px-5'>
+    <div class='col-12 d-none d-lg-block my-5 py-4 px-5 d-sm-none'>
       <h2 class='header-txt text-center pb-3'>Your Latest Items</h2>
       <table class='table table-bordered table-striped table-hover all-items bg-white'>
         <thead>
