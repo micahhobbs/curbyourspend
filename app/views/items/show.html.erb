@@ -52,9 +52,9 @@
           <div class='py-3 px-5 fs-5'>
             <p class='drk-body-txt'><strong >Cost:</strong> <%= number_to_currency(@item.value) %></p>
             <p class='drk-body-txt'><strong>Status:</strong> <%= @item.status %></p>
-            <p class='drk-body-txt'><strong>Description:</strong> <%= @item.description %></p>
+            <p class='drk-body-txt pb-3'><strong>Description:</strong> <%= @item.description %></p>
             <div class='pb-3 text-center'>
-              <strong><%= link_to 'Link to item', @item.link, target: "_blank" %></strong>
+              <strong><%= link_to 'Link to item', @item.link, target: "_blank", class: "fw-bold p-2 bg-light text-dark" %></strong>
             </div>
           </div>
           <div class='d-grid col-8'>
