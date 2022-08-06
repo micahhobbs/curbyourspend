@@ -43,6 +43,22 @@ def create_items(min, max, user)
   end
 end
 
+14.times do |count|
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  user = User.create!(
+    first_name: first_name,
+    last_name: last_name,
+    username: first_name + last_name,
+    email: "#{first_name}@email.com",
+    password: "password",
+    password_confirmation: "password",
+    profile_visible: true,
+)
+  user.avatar.attach(io: File.open("./app/assets/images/avatars/avatar#{count + 1}.jpeg"), filename: "avatar#{count + 1}.jpeg", content_type: 'image/jpeg')
+  create_items(3, 6, user)
+end
+
 lachy = User.create!(
   first_name: "Lachlan",
   last_name: "Munro",
@@ -67,22 +83,6 @@ micah = User.create!(
 )
 micah.avatar.attach(io: File.open("./app/assets/images/avatars/micah.jpeg"), filename: "micah.jpeg", content_type: 'image/jpeg')
 
-create_items(3, 7, micah)
-
-10.times do |count|
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  user = User.create!(
-    first_name: first_name,
-    last_name: last_name,
-    username: first_name + last_name,
-    email: "#{first_name}@email.com",
-    password: "password",
-    password_confirmation: "password",
-    profile_visible: true,
-)
-  user.avatar.attach(io: File.open("./app/assets/images/avatars/avatar#{count + 1}.jpeg"), filename: "avatar#{count + 1}.jpeg", content_type: 'image/jpeg')
-  create_items(3, 6, user)
-end
+# create_items(3, 7, micah)
 
 puts "Seed complete."
