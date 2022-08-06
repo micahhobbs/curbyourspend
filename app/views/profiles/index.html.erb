@@ -15,7 +15,7 @@
   <div class="d-flex justify-content-between">
     <div>
       <h1 class="header-txt">Profiles</h1>
-      <p id="results" class="body-txt"><%= pluralize(@users.count - 1, "result", plural: "results") %></p>
+      <p id="results" class="body-txt"><%= pluralize(@users.where.not(id: current_user.id).count , "result", plural: "results") %></p>
     </div>
     <div class="d-flex align-items-end">
       <%= simple_form_for :search, method: "GET", url: profiles_path do |f| %>
