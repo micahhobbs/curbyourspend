@@ -15,7 +15,7 @@
   <div class="d-flex justify-content-between">
     <div>
       <h1 class="header-txt">Profiles</h1>
-      <p id="results" class="body-txt"><%= pluralize(@users.count, "result", plural: "results") %></p>
+      <p id="results" class="body-txt"><%= pluralize(@users.count - 1, "result", plural: "results") %></p>
     </div>
     <div class="d-flex align-items-end">
       <%= simple_form_for :search, method: "GET", url: profiles_path do |f| %>
@@ -28,26 +28,28 @@
   </div>
   <div class="cards my-5">
     <% @users.each do |user| %>
-      <%= link_to profile_path(user) do %>
-        <div class="card card-hover text-center">
-          <div class="shadow-sm">
-              <div class="card-body card-text">
-                <% if user.avatar.present?  %>
-                  <%= cl_image_tag(user.avatar.key, class: "border rounded-circle", style: "max-width:20%;", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-                <% else %>
-                  <%= image_tag ('default-avatar.png'), class: "avatar-large dropdown-toggle justify-content-bottom", style: "border: 1px solid lightgrey; max-width: 50px;", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% end %>
-                  <div class="d-flex justify-content-center align-items-center">
-                  <h4 class="card-title my-3 px-1 fw-bold"><%= user.first_name + " " + user.last_name %></h4>
-                  <svg viewBox="0 0 24 24" role="presentation" style="width: 20px; height: 20px;"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" style="fill: rgb(0, 181, 183);"></path></svg>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <p class="tag body-txt"><%= pluralize(user.items.count, 'item', plural: 'items') %> </p>
+      <% if user != current_user  %>
+        <%= link_to profile_path(user) do %>
+          <div class="card card-hover text-center">
+            <div class="shadow-sm">
+                <div class="card-body card-text">
+                  <% if user.avatar.present?  %>
+                    <%= cl_image_tag(user.avatar.key, class: "border rounded-circle", style: "max-width:20%;", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+                  <% else %>
+                    <%= image_tag ('default-avatar.png'), class: "avatar-large dropdown-toggle justify-content-bottom", style: "border: 1px solid lightgrey; max-width: 50px;", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% end %>
+                    <div class="d-flex justify-content-center align-items-center">
+                    <h4 class="card-title my-3 px-1 fw-bold"><%= user.first_name + " " + user.last_name %></h4>
+                    <svg viewBox="0 0 24 24" role="presentation" style="width: 20px; height: 20px;"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" style="fill: rgb(0, 181, 183);"></path></svg>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <p class="tag body-txt"><%= pluralize(user.items.count, 'item', plural: 'items') %> </p>
+                  </div>
                 </div>
               </div>
-            </div>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      <% end  %>
     <% end %>
   </div>
 </div>
